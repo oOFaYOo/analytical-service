@@ -3,15 +3,17 @@ import {Link, useLocation, useParams} from "react-router-dom";
 
 const User = () => {
 
-    const u = useParams().user;
+    const id = useParams().id;
     const path = useLocation().pathname;
 
-    console.log(path, u);
+    console.log(path, id);
 
-    return (
-        <Link to={path + u}>
-            <div>User</div>
-        </Link>
+    return (<>
+            <div>User
+            </div>
+            <Link to={path + '/charts'}>Charts</Link>
+            <Link to={path + '/table'}>Table</Link>
+        </>
     );
 };
 

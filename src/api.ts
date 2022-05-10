@@ -3,12 +3,12 @@ import users from './mock/users';
 const api = {
     getAdmin: () => {
        return new Promise(resolve => {
-            setTimeout(()=>{resolve(users.admin)}, 1000);
+            resolve(users.admin);
         })
     },
     getEmployees: () => {
         return new Promise(resolve => {
-            setTimeout(()=>{resolve(users.employees)}, 2000);
+            setTimeout(()=>{resolve(users.employees)}, 1000);
         })
     }
 }
