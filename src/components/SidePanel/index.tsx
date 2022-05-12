@@ -4,7 +4,7 @@ import {CircularProgress} from "@mui/material";
 
 const SidePanel = ({user, data}: ISidePanel) => {
     return (
-        <div className={'text-zinc-300 bg-zinc-700 max-w-[250px] py-12 z-20 grow relative flex justify-start flex-col'}>
+        <div className={'text-zinc-300 bg-zinc-700 min-w-[250px] max-w-[250px] py-12 z-20 grow relative flex justify-start flex-col'}>
             <div className={'w-full relative flex justify-center mb-2'} >
                 {user ?
                     <img className={'relative h-28 w-28'}
