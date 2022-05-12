@@ -26,7 +26,7 @@ const Main = () => {
         <>
             <Link to={'/'} />
             <ApiContext.Provider value={{api: api}}>
-                    <div className={'fixed flex w-full h-full z-0 bg-zinc-800 justify-center items-center'}>
+                    <div className={'relative flex w-full h-full z-0 bg-zinc-800 justify-center items-center'}>
                         {data ?
                             <div className={'relative flex flex-col w-full h-full justify-end items-center'}>
                                 <input onKeyDown={e => {
