@@ -1,5 +1,5 @@
 import React from 'react';
-import {Cell as ICell} from "../../types";
+import {Cell as ICell} from "../../../types";
 import {Tooltip} from "@mui/material";
 
 const Cell = ({value, plugin, position, width}:ICell) => {

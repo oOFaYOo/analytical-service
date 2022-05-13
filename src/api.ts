@@ -1,5 +1,6 @@
 import users from './mock/users';
 import table from './mock/table';
+import chart from './mock/chart';
 
 class Api {
     getEmployees(){
@@ -12,9 +13,19 @@ class Api {
             setTimeout(()=>{resolve(this.findEmployee(id))}, 500);
         })
     };
+    getTotalTableMetrics(id:string){
+        return new Promise(resolve => {
+            setTimeout(()=>{resolve( table.tableMetrics[id].total)}, 1000);
+        })
+    };
     getTableMetrics(id:string){
         return new Promise(resolve => {
-            setTimeout(()=>{resolve( table.tableMetrics[id])}, 1000);
+            setTimeout(()=>{resolve( table.tableMetrics[id].data)}, 1000);
+        })
+    };
+    getChartMetrics(id:string){
+        return new Promise(resolve => {
+            setTimeout(()=>{resolve( chart.chartMetrics[id])}, 1000);
         })
     };
     private findEmployee(id:string){

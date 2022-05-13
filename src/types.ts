@@ -14,11 +14,24 @@ export interface User {
 }
 
 export interface TableMetric {
+        name: string,
+        plan: number,
+        fact: number,
+        forecast: number,
+        planComplete: number
+}
+
+export interface TableMetrics {
+    total: TableMetric,
+    data: TableMetric[]
+}
+
+
+export interface ChartMetric {
     name: string,
-    plan: number,
-    fact: number,
-    forecast: number,
-    planComplete: number
+    year: string,
+    color: string,
+    values: string[]
 }
 
 export interface SidePanel {
@@ -44,5 +57,6 @@ export interface Title {
 
 export interface Table {
     titles: Title[],
-    data: any[]
+    data: TableMetric[],
+    total: TableMetric
 }

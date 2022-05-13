@@ -1,5 +1,5 @@
 import React from 'react';
-import {Cell as ICell} from "../../types";
+import {Cell as ICell} from "../../../types";
 
 
 const HeaderFooterCell = ({value, position, width, plugin}:ICell) => {
