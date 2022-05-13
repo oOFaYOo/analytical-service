@@ -53,9 +53,11 @@ const User = () => {
                                     'w-28 hover:bg-zinc-600 h-8 bg-zinc-700'}`}>Charts</button>
                     </div>
                     <div className={'flex grow w-full max-h-[90%] relative justify-center items-center'}>
-                        {info === 'table' ?
-                            <Table id={user?.id} total={total as TableMetric}/> :
-                            <Chart id={user?.id} />}
+                        {!user?.id
+                            ? null
+                            : info === 'table'
+                                ? <Table id={user.id} total={total as TableMetric}/>
+                                : <Chart id={user.id} />}
                     </div>
                 </div>
             </div>

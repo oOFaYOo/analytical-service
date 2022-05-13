@@ -96,12 +96,14 @@ const Table = ({id, total}:{id:string|undefined, total:TableMetric}) => {
         },
     ];
 
-    useEffect(() => {
-        (async () => {
-            const data = await api.getTableMetrics(id as string);
-            setTableData(data as TableMetric[])
-        })();
-    }, [tableData]);
+
+        useEffect(() => {
+            (async () => {
+                const data = await api.getTableMetrics(id as string);
+                setTableData(data as TableMetric[])
+            })();
+        }, [tableData]);
+
 
     if (!tableData || !id || !total) {
         return (

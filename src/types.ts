@@ -14,18 +14,18 @@ export interface User {
 }
 
 export interface TableMetric {
-        name: string,
-        plan: number,
-        fact: number,
-        forecast: number,
-        planComplete: number
+    name: string,
+    plan: number,
+    fact: number,
+    forecast: number,
+    planComplete: number,
+    [key: string]: string|number
 }
 
 export interface TableMetrics {
     total: TableMetric,
     data: TableMetric[]
 }
-
 
 export interface ChartMetric {
     name: string,
@@ -53,7 +53,6 @@ export interface Title {
     width?: number,
     plugin?: (value: number | string) => ReactJSXElement | string | number
 }
-
 
 export interface Table {
     titles: Title[],
