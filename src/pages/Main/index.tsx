@@ -33,46 +33,20 @@ const Main = () => {
                                     if (e.key === "Enter") {
                                         setSearch(e.currentTarget.value);
                                     }
-                                }} placeholder={'John Doe . . .'} className={'text-zinc-300' +
-                                ' bg-zinc-700' +
-                                ' flex' +
-                                ' relative' +
-                                ' w-[50%]' +
-                                ' min-w-[520px]' +
-                                ' mb-8' +
-                                ' hover:bg-zinc-600' +
-                                ' h-12' +
-                                ' outline-none' +
-                                ' px-4' +
-                                ' justify-center' +
-                                ' items-center'}/>
-                                <div style={{userSelect: 'none'}} className={'justify-start' +
-                                ' mb-6' +
-                                ' relative' +
-                                ' items-center' +
-                                ' flex-col py-4' +
-                                ' bg-zinc-900' +
-                                ' pl-2' +
-                                ' flex' +
-                                ' w-[520px]' +
-                                ' min-h-[60%]' +
-                                ' max-h-[60%]' +
-                                ' overflow-y-scroll'}>
+                                }} placeholder={'John Doe . . .'} className={'text-zinc-300 bg-zinc-700 flex' +
+                                ' relative w-[50%] min-w-[520px] mb-8 hover:bg-zinc-600 h-12 outline-none' +
+                                ' px-4 justify-center items-center'}/>
+                                <div style={{userSelect: 'none'}} className={'justify-start mb-6 relative' +
+                                ' items-center flex-col py-4 bg-zinc-900 pl-2 flex w-[520px] min-h-[60%]' +
+                                ' max-h-[60%] overflow-y-scroll'}>
                                     {data.filter(item => item.name.toLocaleLowerCase()
                                         .indexOf(search.toLocaleLowerCase()) !== -1)
                                         .map((item: { name: string, id: string }, i: number) => {
                                             return (<Link className={'relative w-full'} key={i}
                                                           to={path + 'user/' + item.id}>
-                                                <div className={'text-zinc-300' +
-                                                ' bg-zinc-700' +
-                                                ' flex' +
-                                                ' relative' +
-                                                ' w-full' +
-                                                ' mb-1' +
-                                                ' hover:bg-zinc-600' +
-                                                ' h-12' +
-                                                ' justify-center' +
-                                                ' items-center'}>{item.name}</div>
+                                                <div className={'text-zinc-300 bg-zinc-700 flex relative w-full' +
+                                                ' mb-1 hover:bg-zinc-600 h-12 justify-center items-center'}
+                                                >{item.name}</div>
                                             </Link>)
                                         })}</div>
                             </div>

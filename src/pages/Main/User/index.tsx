@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Link, useLocation, useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {ApiContext} from '../index';
 import {WayContext} from "../../../App";
-import {ChartMetric, TableMetric, TableMetrics, Title, User as IUser} from '../../../types';
+import {TableMetric, User as IUser} from '../../../types';
 import SidePanel from "../../../components/SidePanel";
 import Table from "./Table";
 import Chart from "./Chart";

@@ -1,7 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import Cell from "../../../../components/TableComponent/Cell";
-import {Table as ITable, TableMetric, TableMetrics, Title} from './../../../../types'
-import HeaderFooterCell from "../../../../components/TableComponent/HeaderFooterCell";
+import {TableMetric, Title} from '../../../../types'
 import {CircularProgress, Tooltip} from "@mui/material";
 import TableComponent from "../../../../components/TableComponent";
 import {ApiContext} from "../../index";

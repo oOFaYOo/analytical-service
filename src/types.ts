@@ -1,5 +1,5 @@
 import {ReactJSXElement} from "@emotion/react/types/jsx-namespace";
-import React from "react";
+
 
 export interface NodePath {
     name: string,

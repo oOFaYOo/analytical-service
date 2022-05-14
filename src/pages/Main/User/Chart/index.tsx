@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {CircularProgress} from "@mui/material";
 import ChartComponent from "../../../../components/ChartComponent";
 import {ChartMetric} from "../../../../types";
