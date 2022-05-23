@@ -19,7 +19,7 @@ const HeadToolbar = () => {
         'z-20 flex justify-between items-center'}>
             <div className={'flex flex-row grow'}>
                 <Link className={`${url.includes('/users') ? 'text-blue-600' : 'text-inherit '} mr-4 hover:brightness-125`} to={'/users'}>Users</Link>
-                <Link className={`${url === '/products' ? 'text-blue-600' : 'text-inherit'} hover:brightness-125`} to={'/products'}>Products</Link>
+                <Link className={`${url.includes('/products') ? 'text-blue-600' : 'text-inherit'} hover:brightness-125`} to={'/products'}>Products</Link>
                 {/*{way.map((item, i) => {*/}
                 {/*    return <div className={'relative h-full flex justify-center items-center'}*/}
                 {/*                key={i}>{i===0 ? null : <div>➞</div>}*/}

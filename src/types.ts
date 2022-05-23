@@ -14,10 +14,12 @@ export interface User {
 }
 
 export interface Product {
+    id: string,
     name: string,
     plan: number,
     fact: number,
     planComplete: number,
+    managers: {name:string, id:string}[]
 }
 
 export interface TableMetric {

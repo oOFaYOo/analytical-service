@@ -6,6 +6,7 @@ import Users from "./pages/Users";
 import Products from "./pages/Products";
 import User from "./pages/Users/User";
 import Api from "./api";
+import Product from "./pages/Products/Product";
 
 export const WayContext = React.createContext<{
     way: NodePath[];
@@ -33,6 +34,7 @@ const App = () => {
                 <Route path="/users" element={<Users/>}/>
                 <Route path="/users/:id" element={<User/>}/>
                 <Route path="/products" element={<Products/>}/>
+                <Route path="/products/:id" element={<Product/>}/>
             </Routes>
             </ApiContext.Provider>
         </WayContext.Provider>

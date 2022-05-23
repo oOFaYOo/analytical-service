@@ -22,8 +22,8 @@ const Products = () => {
             {data ?
                 <div className={'relative overflow-y-scroll flex flex-row px-6 pt-20 pb-8 flex-wrap w-full h-full gap-6 content-start'}>
                     {data.map((item: Product, index: number) => {
-                        return <Tile key={index} title={item.name} plan={item.plan} fact={item.fact}
-                                     planComplete={item.planComplete}/>
+                        return <Link to={'/products/' + item.id}><Tile key={index} title={item.name} plan={item.plan} fact={item.fact}
+                                                 planComplete={item.planComplete}/></Link>
                             })
                     }
                 </div>

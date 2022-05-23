@@ -1,26 +1,46 @@
 import React, {useEffect, useRef} from "react";
 import {Chart, ChartItem, registerables} from 'chart.js';
-import {config} from "./chartConfig";
+import {config as barConfig} from "./barChartConfig";
+import {config as lineConfig} from "./lineChartConfig";
 import {ChartMetric} from "../../types";
 Chart.register(...registerables);
 
-const ChartComponent = ({labels, data}:{labels:string[], data: ChartMetric[]}) => {
+const ChartComponent = ({labels, data, type}:{labels:string[], data: ChartMetric[], type:'line'|'bar'}) => {
 
     const datasets = () => {
-        return data.map((item:ChartMetric) => {
-            return {
-                stack: item.year,
-                label: item.name + ' ' + item.year,
-                data: item.values,
-                backgroundColor: item.color,
-                borderColor: item.color,
-            }
-        });
+        if(type === 'bar'){
+            return data.map((item:ChartMetric) => {
+                return {
+                    label: item.name + ' ' + item.year,
+                    data: item.values,
+                    backgroundColor: item.color,
+                    borderColor: item.color,
+                }
+            });
+        } else if('line') {
+            return data.map((item:ChartMetric) => {
+                return {
+                    label: item.name + ' ' + item.year,
+                    data: item.values,
+                    backgroundColor: item.color,
+                    borderColor: item.color,
+                    tension: 0.1,
+                    fill: false,
+                }
+            });
+        }
     };
 
     const canvas = useRef(null);
     const chartObj = useRef(null);
     let chart: ChartItem | null = null;
+    let config:any;
+
+    if(type === 'bar'){
+        config = {...barConfig}
+    } else if(type === 'line'){
+        config = {...lineConfig}
+    }
 
     useEffect(()=>{
         if(!chartObj.current){

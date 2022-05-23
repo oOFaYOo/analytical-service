@@ -145,10 +145,10 @@ const tableMetrics : {[key: string]: TableMetrics} = {
     'i8k72nkk3j2m': {
         total: {
             name: 'total',
-            plan: 500000,
-            fact: 461334.67,
-            forecast: 535000,
-            planComplete: 0.92266934
+            plan: 800000,
+            fact: 641334.67,
+            forecast: 765000,
+            planComplete: 0.8016683375
         },
         data: [
             {
@@ -185,6 +185,27 @@ const tableMetrics : {[key: string]: TableMetrics} = {
                 fact: 99674.67,
                 forecast: 105000,
                 planComplete: 0.9967467
+            },
+            {
+                name: 'Capricorn',
+                plan: 100000,
+                fact: 80000,
+                forecast: 100000,
+                planComplete: 0.8
+            },
+            {
+                name: 'Cassiopeia',
+                plan: 100000,
+                fact: 90000,
+                forecast: 100000,
+                planComplete: 0.9
+            },
+            {
+                name: 'Horologium',
+                plan: 100000,
+                fact: 10000,
+                forecast: 30000,
+                planComplete: 0.1
             }
         ]
     },
