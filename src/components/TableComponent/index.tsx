@@ -14,7 +14,7 @@ const TableComponent = ({titles, data, total}: ITable) => {
                                 <tr className={'border-zinc-600 h-12 min-h-[56px] max-h-[56px] border-b-2 bg-zinc-700 border-solid'}>
                                     {titles.map((item: Title, i) => {
                                         return (
-                                            <Cell key={i} value={value[item.key]} plugin={item.plugin}
+                                            <Cell key={i} row={value} value={value[item.key]} plugin={item.plugin}
                                                   position={item.position}
                                                   width={item.width}/>
                                         )

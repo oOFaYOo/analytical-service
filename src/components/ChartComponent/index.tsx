@@ -11,6 +11,7 @@ const ChartComponent = ({labels, data, type}:{labels:string[], data: ChartMetric
         if(type === 'bar'){
             return data.map((item:ChartMetric) => {
                 return {
+                    stack: item.year,
                     label: item.name + ' ' + item.year,
                     data: item.values,
                     backgroundColor: item.color,

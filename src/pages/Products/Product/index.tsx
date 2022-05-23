@@ -42,12 +42,16 @@ const Product = () => {
             <div className={'min-h-[750px] relative flex-col' +
             ' bg-zinc-900 flex min-w-[750px] w-[80%] min-h-[530px] h-[85%]'}>
                 <div
-                    className={'max-h-[70px] min-h-[70px] w-full bg-zinc-700 text-zinc-300 items-center flex px-6 text-3xl'}>
+                    className={'max-h-[70px] min-h-[70px] w-full bg-zinc-600 text-zinc-300 items-center justify-between flex px-6 text-3xl'}>
                     <p>{data.name}</p>
+                    <div className={'flex flex-row text-lg grow justify-end text-zinc-500'}>
+                        <p className={'mx-8 drop-shadow-md'}>{data.fact}</p>
+                        <p className={'mx-8 drop-shadow-md'}>{data.plan}</p>
+                    </div>
                 </div>
                 <div className={'h-full w-full relative flex flex-row'}>
-                    <div className={'relative h-full min-w-[250px] bg-zinc-600'}>
-                        <div className={'fixed h-full min-w-[250px] bg-zinc-600'}>
+                    <div className={'relative h-full min-w-[250px] bg-zinc-700'}>
+                        <div className={'fixed h-full min-w-[250px] bg-zinc-700'}>
                             <div className={'bg-zinc-800 flex items-center text-zinc-500 px-6 h-8'}>Product Managers:</div>
                             <div className={'h-[70%] overflow-y-scroll pt-2 pb-4 flex flex-col'}>
                                 {data.managers.map((item) => {
@@ -63,14 +67,16 @@ const Product = () => {
                                                 </div>
                                             </Tooltip> :
                                             <div
-                                                className={'text-zinc-900 px-6 py-2 hover:contrast-200 hover:font-medium hover:shadow-md'}>{item.name}</div>}
+                                                className={'text-zinc-400 px-6 py-2 hover:brightness-150 hover:font-medium hover:shadow-md'}>{item.name}</div>}
                                     </Link>
                                 })}
                             </div>
                         </div>
                     </div>
-                    <div className={'flex w-full px-6 h-full relative justify-center items-center'}>
+                    <div className={'flex w-full p-6 h-full relative justify-center items-center'}>
+                        <div className={'bg-zinc-700 relative w-full h-full'}>
                             <ChartComponent labels={labels} data={chartData as ChartMetric[]} type={'line'}/>
+                        </div>
                     </div>
                 </div>
             </div>

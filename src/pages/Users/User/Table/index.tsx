@@ -3,6 +3,7 @@ import {TableMetric, Title} from '../../../../types'
 import {CircularProgress, Tooltip} from "@mui/material";
 import TableComponent from "../../../../components/TableComponent";
 import {ApiContext} from "../../../../App";
+import {Link} from "react-router-dom";
 
 const Table = ({id, total}:{id:string|undefined, total:TableMetric}) => {
     const api = useContext(ApiContext).api;
@@ -15,7 +16,7 @@ const Table = ({id, total}:{id:string|undefined, total:TableMetric}) => {
             key: 'name',
             position: 'center',
             width: 150,
-            plugin: (value => {
+            plugin: ((value:number|string, row?:TableMetric) => {
                 return (
                     value.toString().length > 20 ?
                         <Tooltip title={value} arrow placement={"right"}>
@@ -26,9 +27,9 @@ const Table = ({id, total}:{id:string|undefined, total:TableMetric}) => {
                                 textAlign: "center"
                             }}
                                  className={'relative w-full h-full m-0 p-0'}>
-                                {value}
+                                <Link to={'/products/' + row?.id}>{value}</Link>
                             </div>
-                        </Tooltip> : value
+                        </Tooltip> : <Link to={'/products/' + row?.id}>{value}</Link>
                 )
             })
         },

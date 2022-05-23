@@ -23,6 +23,7 @@ export interface Product {
 }
 
 export interface TableMetric {
+    id:string,
     name: string,
     plan: number,
     fact: number,
@@ -49,10 +50,11 @@ export interface SidePanel {
 }
 
 export interface Cell {
+    row?:TableMetric,
     value: number | string,
     width?:number | string,
     position?: 'left' | 'right' | 'center',
-    plugin?: (value:number | string) => ReactJSXElement | string | number,
+    plugin?: (value:number | string, row?:TableMetric) => ReactJSXElement | string | number,
 }
 
 export interface Title {
@@ -60,7 +62,7 @@ export interface Title {
     key: string,
     position?: 'left' | 'right' | 'center',
     width?: number,
-    plugin?: (value: number | string) => ReactJSXElement | string | number
+    plugin?: (value: number | string, row?:TableMetric) => ReactJSXElement | string | number
 }
 
 export interface Table {

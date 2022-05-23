@@ -2,7 +2,7 @@ import React from 'react';
 import {Cell as ICell} from "../../../types";
 import {Tooltip} from "@mui/material";
 
-const Cell = ({value, plugin, position, width}:ICell) => {
+const Cell = ({value, plugin, position, width, row}:ICell) => {
 
     const cellWidth = width ? width : 'auto';
 
@@ -22,7 +22,7 @@ const Cell = ({value, plugin, position, width}:ICell) => {
                 textAlign: position
             }}
                  className={`relative w-full h-full m-0 p-0 ${position ? direction[position] : 'justify-start'} `}>
-                {plugin ? plugin(value) : value}
+                {plugin ? plugin(value, row) : value}
             </div>
         </td>);
 };
