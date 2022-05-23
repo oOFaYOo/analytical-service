@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
-import {ApiContext} from '../index';
+import {ApiContext} from "../../../App";
 import {WayContext} from "../../../App";
 import {TableMetric, User as IUser} from '../../../types';
 import SidePanel from "../../../components/SidePanel";

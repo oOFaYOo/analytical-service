@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {CircularProgress} from "@mui/material";
 import ChartComponent from "../../../../components/ChartComponent";
 import {ChartMetric} from "../../../../types";
-import {ApiContext} from "../../index";
+import {ApiContext} from "../../../../App";
 
 const Chart = ({id}:{id:string|undefined}) => {
     const api = useContext(ApiContext).api;

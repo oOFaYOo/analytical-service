@@ -1,6 +1,7 @@
 import users from './mock/users';
 import table from './mock/table';
 import chart from './mock/chart';
+import {products} from "./mock/products";
 
 class Api {
     getEmployees(){
@@ -16,6 +17,11 @@ class Api {
     getTotalTableMetrics(id:string){
         return new Promise(resolve => {
             setTimeout(()=>{resolve( table.tableMetrics[id].total)}, 1000);
+        })
+    };
+    getProducts(){
+        return new Promise(resolve => {
+            setTimeout(()=>{resolve( products)}, 1000);
         })
     };
     getTableMetrics(id:string){

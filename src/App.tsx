@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import {Routes, Route} from "react-router-dom";
-import Main from "./pages/Main";
-import User from "./pages/Main/User";
+import {Routes, Route, Navigate} from "react-router-dom";
 import HeadToolBar from "./components/HeadToolbar";
 import {NodePath} from "./types";
+import Users from "./pages/Users";
+import Products from "./pages/Products";
+import User from "./pages/Users/User";
+import Api from "./api";
 
 export const WayContext = React.createContext<{
     way: NodePath[];
@@ -13,6 +15,8 @@ export const WayContext = React.createContext<{
     }
 });
 export const Admin = React.createContext({name: "", role: ""});
+const api = new Api();
+export const ApiContext = React.createContext({api: api});
 
 const App = () => {
 
@@ -23,10 +27,14 @@ const App = () => {
             <Admin.Provider value={{name: 'Christopher Hunter', role: "Admin"}}>
             <HeadToolBar/>
             </Admin.Provider>
+            <ApiContext.Provider value={{api: api}}>
             <Routes>
-                <Route path="/" element={<Main/>}/>
-                <Route path="/user/:id" element={<User/>}/>
+                <Route path="/" element={<Navigate to={'/users'}/>}/>
+                <Route path="/users" element={<Users/>}/>
+                <Route path="/users/:id" element={<User/>}/>
+                <Route path="/products" element={<Products/>}/>
             </Routes>
+            </ApiContext.Provider>
         </WayContext.Provider>
     </>);
 };

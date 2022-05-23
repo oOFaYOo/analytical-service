@@ -13,6 +13,13 @@ export interface User {
     photo: string
 }
 
+export interface Product {
+    name: string,
+    plan: number,
+    fact: number,
+    planComplete: number,
+}
+
 export interface TableMetric {
     name: string,
     plan: number,

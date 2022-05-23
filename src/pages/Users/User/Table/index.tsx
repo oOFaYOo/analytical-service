@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {TableMetric, Title} from '../../../../types'
 import {CircularProgress, Tooltip} from "@mui/material";
 import TableComponent from "../../../../components/TableComponent";
-import {ApiContext} from "../../index";
+import {ApiContext} from "../../../../App";
 
 const Table = ({id, total}:{id:string|undefined, total:TableMetric}) => {
     const api = useContext(ApiContext).api;
