@@ -44,9 +44,9 @@ const Product = () => {
                 <div
                     className={'max-h-[70px] min-h-[70px] w-full bg-zinc-600 text-zinc-300 items-center justify-between flex px-6 text-3xl'}>
                     <p>{data.name}</p>
-                    <div className={'flex flex-row text-lg grow justify-end text-zinc-500'}>
-                        <p className={'mx-8 drop-shadow-md'}>{data.fact}</p>
-                        <p className={'mx-8 drop-shadow-md'}>{data.plan}</p>
+                    <div className={'flex flex-row text-lg grow justify-end text-zinc-400'}>
+                        <p className={'mx-8 drop-shadow-md'}>{data.fact} fact</p>
+                        <p className={'mx-8 drop-shadow-md'}>{data.plan} plan</p>
                     </div>
                 </div>
                 <div className={'h-full w-full relative flex flex-row'}>
