@@ -26,10 +26,10 @@ const Table = ({id, total}:{id:string|undefined, total:TableMetric}) => {
                                 whiteSpace: 'nowrap',
                                 textAlign: "center"
                             }}
-                                 className={'relative w-full h-full m-0 p-0'}>
+                                 className={'relative w-full h-full m-0 p-0 text-blue-600 hover:brightness-150'}>
                                 <Link to={'/products/' + row?.id}>{value}</Link>
                             </div>
-                        </Tooltip> : <Link to={'/products/' + row?.id}>{value}</Link>
+                        </Tooltip> : <Link className={'text-blue-600 hover:brightness-150'} to={'/products/' + row?.id}>{value}</Link>
                 )
             })
         },

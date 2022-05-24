@@ -18,7 +18,7 @@ const Tile = ({title, plan, fact, planComplete}: { title: string; plan: number; 
     };
 
     return (
-        <div className={'w-[350px] rounded h-[150px] px-6 py-4 bg-zinc-700 flex-col flex justify-between'}>
+        <div className={'w-[350px] rounded h-[150px] px-6 py-4 bg-zinc-700 flex-col flex justify-between hover:brightness-125 hover:scale-105'}>
             {title.length > 35 ? <Tooltip title={title} arrow placement={"right"}>
                 <p style={{
                     textOverflow: 'ellipsis',
