@@ -98,6 +98,7 @@ const Table = ({id, total}:{id:string|undefined, total:TableMetric}) => {
 
         useEffect(() => {
             (async () => {
+                if(tableData) return;
                 const data = await api.getTableMetrics(id as string);
                 setTableData(data as TableMetric[])
             })();

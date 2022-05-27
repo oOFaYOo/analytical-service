@@ -1,22 +1,19 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {CircularProgress} from "@mui/material";
-import {WayContext} from "../../App";
 import {ApiContext} from "../../App";
 
 const Users = () => {
 
-    const path = "/";
-    const [data, setData] = useState<undefined | { name: string, id: string }[]>();
+    const [data, setData] = useState<undefined | { name: string, id: string }[]|any>();
     const [search, setSearch] = useState<string>('');
-    const {way, setWay} = useContext(WayContext);
     const api = useContext(ApiContext).api;
 
     useEffect(() => {
+        if(data) return;
         (async () => {
             const data = await api.getEmployees() as undefined | { name: string, id: string }[];
             setData(data);
-            setWay([{url:'/', name:'Main'}]);
         })()
     }, [data]);
 
@@ -34,11 +31,11 @@ const Users = () => {
                                 <div style={{userSelect: 'none'}} className={'justify-start mb-6 relative' +
                                 ' items-center flex-col py-4 bg-zinc-900 pl-2 flex w-[520px] min-h-[60%]' +
                                 ' max-h-[60%] overflow-y-scroll'}>
-                                    {data.filter(item => item.name.toLocaleLowerCase()
+                                    {data.filter((item:any) => item.name.toLocaleLowerCase()
                                         .indexOf(search.toLocaleLowerCase()) !== -1)
                                         .map((item: { name: string, id: string }, i: number) => {
                                             return (<Link className={'relative w-full'} key={i}
-                                                          to={path + 'users/' + item.id}>
+                                                          to={'/users/' + item.id}>
                                                 <div className={'text-zinc-300 bg-zinc-700 flex relative w-full' +
                                                 ' mb-1 hover:bg-zinc-600 h-12 justify-center items-center'}
                                                 >{item.name}</div>

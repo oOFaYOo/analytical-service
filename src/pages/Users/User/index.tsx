@@ -1,7 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
 import {ApiContext} from "../../../App";
-import {WayContext} from "../../../App";
 import {TableMetric, User as IUser} from '../../../types';
 import SidePanel from "../../../components/SidePanel";
 import Table from "./Table";
@@ -10,12 +9,10 @@ import Chart from "./Chart";
 const User = () => {
 
     const api = useContext(ApiContext).api;
-    const {way, setWay} = useContext(WayContext);
     const [user, setUser] = useState<undefined | IUser>(undefined);
     const [total, setTotal] = useState<undefined | TableMetric>(undefined);
 
     const id = useParams().id as string;
-    const path = useLocation().pathname;
 
     const [info, setInfo] = useState<'charts'|'table'>('table');
 
@@ -25,12 +22,12 @@ const User = () => {
                 return;
             const data = await api.getEmployee(id) as IUser;
             setUser(data);
-            setWay([...way, {name: data.name, url: path}])
         })();
     },[user]);
 
     useEffect(() => {
         (async () => {
+            if(total) return;
             const data = await api.getTotalTableMetrics(id as string);
             setTotal(data as TableMetric)
         })();

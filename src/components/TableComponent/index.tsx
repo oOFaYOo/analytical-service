@@ -11,7 +11,7 @@ const TableComponent = ({titles, data, total}: ITable) => {
                 {
                     data.map((value, index) => {
                             return (
-                                <tr className={'border-zinc-600 h-12 min-h-[56px] max-h-[56px] border-b-2 bg-zinc-700 border-solid'}>
+                                <tr key={index} className={'border-zinc-600 h-12 min-h-[56px] max-h-[56px] border-b-2 bg-zinc-700 border-solid'}>
                                     {titles.map((item: Title, i) => {
                                         return (
                                             <Cell key={i} row={value} value={value[item.key]} plugin={item.plugin}

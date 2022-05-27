@@ -6,11 +6,12 @@ import Tile from "../../components/Tile";
 import {Product} from "../../types";
 
 const Products = () => {
-    const path = "/";
+
     const [data, setData] = useState<undefined | Product[]>();
     const api = useContext(ApiContext).api;
 
     useEffect(() => {
+        if(data) return;
         (async () => {
             const data = await api.getProducts() as undefined | Product[];
             setData(data);
