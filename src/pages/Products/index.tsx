@@ -11,7 +11,6 @@ const Products = () => {
     const api = useContext(ApiContext).api;
 
     useEffect(() => {
-        if(data) return;
         (async () => {
             const data = await api.getProducts() as undefined | ProductType[];
             setData(data);
@@ -23,7 +22,7 @@ const Products = () => {
             {data ?
                 <div className={'relative overflow-y-scroll flex flex-row px-6 pt-20 pb-8 flex-wrap w-full h-full gap-6 content-start'}>
                     {data.map((item: ProductType, index: number) => {
-                        return <Link to={'/products/' + item.id}><Tile key={index} title={item.name} plan={item.plan} fact={item.fact}
+                        return <Link key={index} to={'/products/' + item.id}><Tile title={item.name} plan={item.plan} fact={item.fact}
                                                  planComplete={item.planComplete}/></Link>
                             })
                     }

@@ -13,7 +13,6 @@ const Chart = ({id}:{id:string|undefined}) => {
     const labels = months;
 
     useEffect(() => {
-        if(chartData) return;
         (async () => {
             const data = await api.getUserChartMetrics(id as string);
             setChartData(data as ChartMetricType[])

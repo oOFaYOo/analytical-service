@@ -10,7 +10,6 @@ const Users = () => {
     const api = useContext(ApiContext).api;
 
     useEffect(() => {
-        if(data) return;
         (async () => {
             const data = await api.getEmployees() as undefined | { name: string, id: string }[];
             setData(data);

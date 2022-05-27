@@ -18,8 +18,6 @@ const User = () => {
 
     useEffect(()=>{
         (async () => {
-            if (user)
-                return;
             const data = await api.getEmployee(id) as UserType;
             setUser(data);
         })();
@@ -27,7 +25,6 @@ const User = () => {
 
     useEffect(() => {
         (async () => {
-            if(total) return;
             const data = await api.getTotalTableMetrics(id as string);
             setTotal(data as TableMetricType)
         })();

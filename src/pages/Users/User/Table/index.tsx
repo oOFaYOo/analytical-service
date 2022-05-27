@@ -95,15 +95,12 @@ const Table = ({id, total}:{id:string|undefined, total:TableMetricType}) => {
         },
     ];
 
-
         useEffect(() => {
             (async () => {
-                if(tableData) return;
                 const data = await api.getTableMetrics(id as string);
                 setTableData(data as TableMetricType[])
             })();
         }, [tableData]);
-
 
     if (!tableData || !id || !total) {
         return (

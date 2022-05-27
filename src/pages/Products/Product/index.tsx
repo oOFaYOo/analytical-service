@@ -18,7 +18,6 @@ const Product = () => {
 
     useEffect(() => {
         (async () => {
-            if(chartData) return;
             const data = await api.getProductChartMetrics(id as string);
             setChartData(data as ChartMetricType[])
         })();
@@ -26,7 +25,6 @@ const Product = () => {
 
     useEffect(() => {
         (async () => {
-            if (data) return;
             const product = await api.getProduct(id) as ProductType;
             setData(product);
         })();
@@ -55,8 +53,8 @@ const Product = () => {
                         <div className={'fixed h-full min-w-[250px] bg-zinc-700'}>
                             <div className={'bg-zinc-800 flex items-center text-zinc-500 px-6 h-8'}>Product Managers:</div>
                             <div className={'h-[70%] overflow-y-scroll pt-2 pb-4 flex flex-col'}>
-                                {data.managers.map((item) => {
-                                    return <Link to={'/users/' + item.id}>
+                                {data.managers.map((item, i) => {
+                                    return <Link key={i} to={'/users/' + item.id}>
                                         {item.name.length > 20 ? <Tooltip title={item.name} arrow placement={"right"}>
                                                 <div style={{
                                                     textOverflow: 'ellipsis',
