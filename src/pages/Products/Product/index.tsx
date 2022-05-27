@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {ApiContext} from "../../../App";
-import {ChartMetric, Product as IProduct} from "../../../types";
+import {ChartMetricType, ProductType} from "../../../types";
 import {Link, useParams} from "react-router-dom";
 import {CircularProgress, Tooltip} from "@mui/material";
 import ChartComponent from "../../../components/ChartComponent";
@@ -12,22 +12,22 @@ const Product = () => {
     const id = useParams().id as string;
     const labels = months;
 
-    const [data, setData] = useState<undefined | IProduct>(undefined);
+    const [data, setData] = useState<undefined | ProductType>(undefined);
 
-    const [chartData, setChartData] = useState<undefined | ChartMetric[]>(undefined);
+    const [chartData, setChartData] = useState<undefined | ChartMetricType[]>(undefined);
 
     useEffect(() => {
         (async () => {
             if(chartData) return;
             const data = await api.getProductChartMetrics(id as string);
-            setChartData(data as ChartMetric[])
+            setChartData(data as ChartMetricType[])
         })();
     }, [chartData]);
 
     useEffect(() => {
         (async () => {
             if (data) return;
-            const product = await api.getProduct(id) as IProduct;
+            const product = await api.getProduct(id) as ProductType;
             setData(product);
         })();
     }, [data]);
@@ -76,7 +76,7 @@ const Product = () => {
                     </div>
                     <div className={'flex w-full p-6 h-full relative justify-center items-center'}>
                         <div className={'bg-zinc-700 relative w-full h-full'}>
-                            <ChartComponent labels={labels} data={chartData as ChartMetric[]} type={'line'}/>
+                            <ChartComponent labels={labels} data={chartData as ChartMetricType[]} type={'line'}/>
                         </div>
                     </div>
                 </div>

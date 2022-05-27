@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {ApiContext} from "../../../App";
-import {TableMetric, User as IUser} from '../../../types';
+import {TableMetricType, UserType} from '../../../types';
 import SidePanel from "../../../components/SidePanel";
 import Table from "./Table";
 import Chart from "./Chart";
@@ -9,8 +9,8 @@ import Chart from "./Chart";
 const User = () => {
 
     const api = useContext(ApiContext).api;
-    const [user, setUser] = useState<undefined | IUser>(undefined);
-    const [total, setTotal] = useState<undefined | TableMetric>(undefined);
+    const [user, setUser] = useState<undefined | UserType>(undefined);
+    const [total, setTotal] = useState<undefined | TableMetricType>(undefined);
 
     const id = useParams().id as string;
 
@@ -20,7 +20,7 @@ const User = () => {
         (async () => {
             if (user)
                 return;
-            const data = await api.getEmployee(id) as IUser;
+            const data = await api.getEmployee(id) as UserType;
             setUser(data);
         })();
     },[user]);
@@ -29,7 +29,7 @@ const User = () => {
         (async () => {
             if(total) return;
             const data = await api.getTotalTableMetrics(id as string);
-            setTotal(data as TableMetric)
+            setTotal(data as TableMetricType)
         })();
     }, [total]);
 
@@ -37,7 +37,7 @@ const User = () => {
         <div className={'relative flex w-full h-full z-0 bg-zinc-800 justify-center items-end'}>
             <div className={'min-h-[750px] relative flex-row' +
             ' bg-zinc-900 flex min-w-[750px] w-[80%] min-h-[530px] h-[85%]'}>
-                <SidePanel user={user as IUser} data={total} />
+                <SidePanel user={user as UserType} data={total} />
                 <div className={'p-4 flex flex-col overflow-x-auto justify-center items-center grow relative max-w-[90%]'}>
                     <div className={'text-zinc-300 mb-4 w-full relative flex flex-row justify-center'}>
                         <button onClick={() => {setInfo('table')}}
@@ -53,7 +53,7 @@ const User = () => {
                         {!user?.id
                             ? null
                             : info === 'table'
-                                ? <Table id={user.id} total={total as TableMetric}/>
+                                ? <Table id={user.id} total={total as TableMetricType}/>
                                 : <Chart id={user.id} />}
                     </div>
                 </div>

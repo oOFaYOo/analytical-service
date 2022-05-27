@@ -1,19 +1,13 @@
 import {ReactJSXElement} from "@emotion/react/types/jsx-namespace";
 
-
-export interface NodePath {
-    name: string,
-    url: string
-}
-
-export interface User {
+export interface UserType {
     name: string,
     id: string,
     position: string,
     photo: string
 }
 
-export interface Product {
+export interface ProductType {
     id: string,
     name: string,
     plan: number,
@@ -22,7 +16,7 @@ export interface Product {
     managers: {name:string, id:string}[]
 }
 
-export interface TableMetric {
+export interface TableMetricType {
     id:string,
     name: string,
     plan: number,
@@ -32,41 +26,41 @@ export interface TableMetric {
     [key: string]: string|number
 }
 
-export interface TableMetrics {
-    total: TableMetric,
-    data: TableMetric[]
+export interface TableMetricsType {
+    total: TableMetricType,
+    data: TableMetricType[]
 }
 
-export interface ChartMetric {
+export interface ChartMetricType {
     name: string,
     year: string,
     color: string,
     values: string[]
 }
 
-export interface SidePanel {
-    user: User,
-    data: TableMetric | undefined
+export interface SidePanelType {
+    user: UserType,
+    data: TableMetricType | undefined
 }
 
-export interface Cell {
-    row?:TableMetric,
+export interface CellType {
+    row?:TableMetricType,
     value: number | string,
     width?:number | string,
     position?: 'left' | 'right' | 'center',
-    plugin?: (value:number | string, row?:TableMetric) => ReactJSXElement | string | number,
+    plugin?: (value:number | string, row?:TableMetricType) => ReactJSXElement | string | number,
 }
 
-export interface Title {
+export interface TitleType {
     name: string,
     key: string,
     position?: 'left' | 'right' | 'center',
     width?: number,
-    plugin?: (value: number | string, row?:TableMetric) => ReactJSXElement | string | number
+    plugin?: (value: number | string, row?:TableMetricType) => ReactJSXElement | string | number
 }
 
-export interface Table {
-    titles: Title[],
-    data: TableMetric[],
-    total: TableMetric
+export interface TableType {
+    titles: TitleType[],
+    data: TableMetricType[],
+    total: TableMetricType
 }

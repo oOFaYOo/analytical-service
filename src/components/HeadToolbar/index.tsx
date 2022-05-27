@@ -1,11 +1,6 @@
 import React, {useContext} from 'react';
 import {Link, useLocation} from "react-router-dom";
-import {NodePath} from "../../types";
 import {Admin} from "../../App";
-
-interface IH {
-    way: NodePath[];
-}
 
 const HeadToolbar = () => {
     const admin = useContext(Admin);

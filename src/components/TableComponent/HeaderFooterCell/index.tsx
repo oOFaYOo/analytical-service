@@ -1,8 +1,8 @@
 import React from 'react';
-import {Cell as ICell} from "../../../types";
+import {CellType} from "../../../types";
 
 
-const HeaderFooterCell = ({value, position, width, plugin}:ICell) => {
+const HeaderFooterCell = ({value, position, width, plugin}:CellType) => {
 
     const cellWidth = width ? width : 100;
 

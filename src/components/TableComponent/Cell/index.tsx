@@ -1,8 +1,7 @@
 import React from 'react';
-import {Cell as ICell} from "../../../types";
-import {Tooltip} from "@mui/material";
+import {CellType} from "../../../types";
 
-const Cell = ({value, plugin, position, width, row}:ICell) => {
+const Cell = ({value, plugin, position, width, row}:CellType) => {
 
     const cellWidth = width ? width : 'auto';
 

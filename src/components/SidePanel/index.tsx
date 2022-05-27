@@ -1,8 +1,8 @@
 import React from 'react';
-import {SidePanel as ISidePanel} from "../../types";
+import {SidePanelType} from "../../types";
 import {CircularProgress, Tooltip} from "@mui/material";
 
-const SidePanel = ({user, data}: ISidePanel) => {
+const SidePanel = ({user, data}: SidePanelType) => {
     return (
         <div className={'text-zinc-300 bg-zinc-700 min-w-[250px] max-w-[250px] px-4 py-12 z-20 grow relative flex justify-start flex-col'}>
             <div className={'w-full relative flex justify-center mb-2'} >

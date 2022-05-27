@@ -1,9 +1,9 @@
 import React from 'react';
 import Cell from "./Cell";
-import {Table as ITable, Title} from './../../types'
+import {TableType, TitleType} from '../../types'
 import HeaderFooterCell from "./HeaderFooterCell";
 
-const TableComponent = ({titles, data, total}: ITable) => {
+const TableComponent = ({titles, data, total}: TableType) => {
 
     const Rows = () => {
         return (
@@ -12,7 +12,7 @@ const TableComponent = ({titles, data, total}: ITable) => {
                     data.map((value, index) => {
                             return (
                                 <tr key={index} className={'border-zinc-600 h-12 min-h-[56px] max-h-[56px] border-b-2 bg-zinc-700 border-solid'}>
-                                    {titles.map((item: Title, i) => {
+                                    {titles.map((item: TitleType, i) => {
                                         return (
                                             <Cell key={i} row={value} value={value[item.key]} plugin={item.plugin}
                                                   position={item.position}
@@ -43,7 +43,7 @@ const TableComponent = ({titles, data, total}: ITable) => {
                 </tbody>
                 <tfoot className={'sticky bottom-0 z-50 border-zinc-600 h-12 border-x-2 border-solid bg-zinc-600'}>
                 {
-                    titles.map((item: Title, i) => {
+                    titles.map((item: TitleType, i) => {
                             return (
                                 <HeaderFooterCell key={i} value={total[item.key]}
                                                   plugin={item.plugin}
