@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {CircularProgress} from "@mui/material";
 import {ApiContext} from "../../App";
+import SlidePanel from "../../components/SlidePanel";
 
 const Users = () => {
 
@@ -19,7 +20,8 @@ const Users = () => {
     return (
         <>
             <Link to={'/'} />
-                    <div className={'relative flex w-full h-full z-0 bg-zinc-800 justify-center items-center'}>
+                    <div className={'relative min-w-[1170px] flex w-full h-full z-0 bg-zinc-800 justify-center items-center'}>
+                       <SlidePanel values={[{title: 'Reporting departments', url: ''}, {title: 'Departmental indicators', url: ''}]} />
                         {data ?
                             <div className={'relative flex flex-col w-full h-full justify-end items-center'}>
                                 <input  onChange={e => {

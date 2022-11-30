@@ -7,6 +7,10 @@ export interface UserType {
     photo: string
 }
 
+export interface SlidePanelType {
+    values: {title: string, url: string,}[]
+}
+
 export interface ProductType {
     id: string,
     name: string,
