@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 const SlidePanel = ({values} : SlidePanelType) => {
 
-    const [open, setOpen] = useState<boolean>(false)
+    const [open, setOpen] = useState<boolean>(true)
 
     return (
         <div className={'absolute h-full w-[260px] bg-zinc-700 flex flex-row duration-75 z-10'}
@@ -12,7 +12,7 @@ const SlidePanel = ({values} : SlidePanelType) => {
             <div className={'flex relative flex-col gap-y-4 justify-center items-center h-full w-[230px]'}>
                 {
                     values.map((item, index)=>{
-                        return <Link to={item.url} key={index} className={'p-2 hover:bg-zinc-600/5 text-center w-full text-zinc-400 hover:brightness-125'}>
+                        return <Link to={item.url} key={index} className={'p-2 hover:shadow-md text-center w-full text-zinc-400 hover:brightness-125'}>
                             {item.title}
                         </Link>
                     })
@@ -21,7 +21,9 @@ const SlidePanel = ({values} : SlidePanelType) => {
             <div onClick={() => {
                 setOpen(!open)
             }}
-                 className={'hover:shadow-xl shadow-md hover:brightness-150 font-bold text-zinc-500 text-2xl h-full hover:cursor-pointer grow flex relative justify-center items-center'}>{open ? '<' : '>'}</div>
+                 className={'hover:shadow-xl shadow-md hover:brightness-150 font-bold text-zinc-500 text-2xl h-full hover:cursor-pointer grow flex relative justify-center items-center'}>
+                {open ? '<' : '>'}
+            </div>
         </div>
     );
 

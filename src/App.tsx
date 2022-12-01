@@ -6,6 +6,8 @@ import Products from "./pages/Products";
 import User from "./pages/Users/User";
 import Api from "./api";
 import Product from "./pages/Products/Product";
+import DepIndicators from "./pages/DepIndicators";
+import DepReporting from "./pages/DepReporting";
 
 const api = new Api();
 export const Admin = React.createContext({name: "", role: ""});
@@ -15,7 +17,7 @@ const App = () => {
 
     return (<>
             <Admin.Provider value={{name: 'Christopher Hunter', role: "Admin"}}>
-            <HeadToolBar/>
+            <HeadToolBar />
             </Admin.Provider>
             <ApiContext.Provider value={{api: api}}>
             <Routes>
@@ -24,6 +26,8 @@ const App = () => {
                 <Route path="/users/:id" element={<User/>}/>
                 <Route path="/products" element={<Products/>}/>
                 <Route path="/products/:id" element={<Product/>}/>
+                <Route path="/reporting_departments" element={<DepReporting />}/>
+                <Route path="/departmental_indicators" element={<DepIndicators />}/>
             </Routes>
             </ApiContext.Provider>
     </>);

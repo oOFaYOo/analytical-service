@@ -21,15 +21,15 @@ const Users = () => {
         <>
             <Link to={'/'} />
                     <div className={'relative min-w-[1170px] flex w-full h-full z-0 bg-zinc-800 justify-center items-center'}>
-                       <SlidePanel values={[{title: 'Reporting departments', url: ''}, {title: 'Departmental indicators', url: ''}]} />
+                       <SlidePanel values={[{title: 'Reporting departments', url: '/reporting_departments'}, {title: 'Departmental indicators', url: '/departmental_indicators'}]} />
                         {data ?
                             <div className={'relative flex flex-col w-full h-full justify-end items-center'}>
                                 <input  onChange={e => {
                                         setSearch(e.currentTarget.value)
-                                }} placeholder={'John Doe . . .'} className={'text-zinc-300 bg-zinc-700 flex' +
+                                }} placeholder={'John Doe . . .'} className={'text-zinc-300 shadow-lg rounded-md bg-zinc-700 flex' +
                                 ' relative w-[50%] min-w-[520px] mb-8 hover:bg-zinc-600 h-12 outline-none' +
                                 ' px-4 justify-center items-center'}/>
-                                <div style={{userSelect: 'none'}} className={'justify-start mb-6 relative' +
+                                <div style={{userSelect: 'none'}} className={'justify-start shadow-lg rounded-md mb-6 relative' +
                                 ' items-center flex-col py-4 bg-zinc-900 pl-2 flex w-[520px] min-h-[60%]' +
                                 ' max-h-[60%] overflow-y-scroll'}>
                                     {data.filter((item:any) => item.name.toLocaleLowerCase()
