@@ -1,21 +1,60 @@
-import React, {useContext} from 'react';
+import React, {createContext, useContext, useEffect} from 'react';
 import {Link, useLocation} from "react-router-dom";
-import {Admin} from "../../App";
+import {Admin, FilterContext} from "../../App";
+import {MenuItem, Select} from "@mui/material";
+
+const toTopSort = (arr:any[], key:string) => {
+    return arr.slice(0).sort((a, b) => a[key] - b[key])
+};
+
+const toBottomSort = (arr:any[], key:string) => {
+    return arr.slice(0).sort((a, b) =>  b[key] - a[key])
+};
 
 const HeadToolbar = () => {
     const admin = useContext(Admin);
+    const {setSortFunc} = useContext(FilterContext);
     const url = useLocation().pathname;
 
+    const [sort, setSort] = React.useState('1');
+
+    const handleChange = (event:any) => {
+        setSort(event.target.value as string);
+        if(event.target.value === 2){
+            setSortFunc(()=>toTopSort);
+        } else if(event.target.value === 3){
+            setSortFunc(()=>toBottomSort);
+        } else {
+            setSortFunc(undefined);
+        }
+    };
+
     return (
-        <div style={{userSelect: 'none'}} className={'text-zinc-300 min-w-[1100px]' +
-        ' flex-row px-4 w-full ' +
+        <div style={{userSelect: 'none'}} className={'text-zinc-300 min-w-[1050px]' +
+        ' flex-row w-full ' +
         'h-12 absolute bg-zinc-700 ' +
-        'z-20 flex justify-between items-center shadow-xl'}>
+        'z-50 flex justify-between items-center shadow-xl'}>
+            <div className={'absolute left-6 z-50'}>
+                <Select
+                    labelId='uncontrolled-native'
+                    id='uncontrolled-native'
+                    value={sort}
+                    onChange={
+                        handleChange
+                    }
+                    className={'max-h-[32px] w-[150px] absolute hover:brightness-125'}
+                    style={{color: 'rgb(161 161 170)'}}
+                >
+                    <MenuItem value={1}>Original</MenuItem>
+                    <MenuItem value={2}>To the top</MenuItem>
+                    <MenuItem value={3}>To the bottom</MenuItem>
+                </Select>
+            </div>
             <div className={'flex justify-center flex-row grow w-full relative'}>
                 <Link className={`${url.includes('/users') ? 'flex justify-center items-center text-zinc-200 w-28 hover:bg-blue-500 h-8 bg-blue-600 mr-2' : 'flex justify-center items-center w-28 hover:brightness-110 h-8 bg-zinc-600 mr-2'}`} to={'/users'}>Users</Link>
                 <Link className={`${url.includes('/products') ? 'flex justify-center items-center text-zinc-200 w-28 hover:bg-blue-500 h-8 bg-blue-600' : 'flex justify-center items-center w-28 hover:brightness-110 h-8 bg-zinc-600'}`} to={'/products'}>Products</Link>
             </div>
-            <div className={'text-zinc-400 mr-4 right-0 absolute'}>{admin.name + ' '}|{' ' + admin.role}</div>
+            <div className={'text-zinc-400 right-6 absolute'}>{admin.name + ' '}|{' ' + admin.role}</div>
         </div>
     );
 };

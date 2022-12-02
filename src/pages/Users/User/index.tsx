@@ -5,6 +5,7 @@ import {TableMetricType, UserType} from '../../../types';
 import SidePanel from "../../../components/SidePanel";
 import Table from "./Table";
 import Chart from "./Chart";
+import SlidePanel from "../../../components/SlidePanel";
 
 const User = () => {
 
@@ -32,6 +33,10 @@ const User = () => {
 
     return (
         <div className={'relative flex w-full h-full z-0 bg-zinc-800 justify-center items-end'}>
+            <SlidePanel values={[{
+                title: 'Reporting departments',
+                url: '/reporting_departments'
+            }, {title: 'Departmental indicators', url: '/departmental_indicators'}]} initial={'close'} total/>
             <div className={'min-h-[750px] relative flex-row' +
             ' bg-zinc-900 flex min-w-[750px] w-[80%] min-h-[530px] h-[85%]'}>
                 <SidePanel user={user as UserType} data={total} />

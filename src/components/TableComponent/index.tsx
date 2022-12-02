@@ -31,7 +31,7 @@ const TableComponent = ({titles, data, total}: TableType) => {
 
     return (
             <table className={'w-full'}>
-                <thead className={'sticky top-0 z-50 border-zinc-600 w-full h-12 border-x-2 border-solid bg-zinc-600'}>
+                <thead className={'sticky top-0 z-30 border-zinc-600 w-full h-12 border-x-2 border-solid bg-zinc-600'}>
                 {titles.map((item, i) => {
                     return (
                         <HeaderFooterCell key={i} value={item.name} width={item.width} position={item.position}/>
@@ -41,7 +41,7 @@ const TableComponent = ({titles, data, total}: TableType) => {
                 <tbody className={'text-sm w-full'}>
                 <Rows/>
                 </tbody>
-                <tfoot className={'sticky bottom-0 z-50 border-zinc-600 h-12 border-x-2 border-solid bg-zinc-600'}>
+                <tfoot className={'sticky bottom-0 z-30 border-zinc-600 h-12 border-x-2 border-solid bg-zinc-600'}>
                 {
                     titles.map((item: TitleType, i) => {
                             return (

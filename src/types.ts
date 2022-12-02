@@ -8,7 +8,9 @@ export interface UserType {
 }
 
 export interface SlidePanelType {
-    values: {title: string, url: string,}[]
+    values: {title: string, url: string,}[],
+    initial?: 'open' | 'close',
+    total?: boolean,
 }
 
 export interface ProductType {
