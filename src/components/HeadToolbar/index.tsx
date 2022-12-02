@@ -3,12 +3,12 @@ import {Link, useLocation} from "react-router-dom";
 import {Admin, FilterContext} from "../../App";
 import {MenuItem, Select} from "@mui/material";
 
-const toTopSort = (arr:any[], key:string) => {
+const toTopSort = (arr: any[], key: string) => {
     // @ts-ignore
     return arr.slice(0).sort((a, b) => {
-        if(typeof a[key] === 'number') {
+        if (typeof a[key] === 'number') {
             return a[key] - b[key];
-        } else if(typeof a[key] === 'string') {
+        } else if (typeof a[key] === 'string') {
             if (a[key] > b[key]) {
                 return 1;
             }
@@ -20,12 +20,12 @@ const toTopSort = (arr:any[], key:string) => {
     })
 };
 
-const toBottomSort = (arr:any[], key:string) => {
+const toBottomSort = (arr: any[], key: string) => {
     // @ts-ignore
     return arr.slice(0).sort((a, b) => {
-        if(typeof a[key] === 'number') {
+        if (typeof a[key] === 'number') {
             return b[key] - a[key];
-        } else if(typeof a[key] === 'string') {
+        } else if (typeof a[key] === 'string') {
             if (a[key] < b[key]) {
                 return 1;
             }
@@ -44,12 +44,12 @@ const HeadToolbar = () => {
 
     const [sort, setSort] = React.useState('1');
 
-    const handleChange = (event:any) => {
+    const handleChange = (event: any) => {
         setSort(event.target.value as string);
-        if(event.target.value === 2){
-            setSortFunc(()=>toTopSort);
-        } else if(event.target.value === 3){
-            setSortFunc(()=>toBottomSort);
+        if (event.target.value === 2) {
+            setSortFunc(() => toTopSort);
+        } else if (event.target.value === 3) {
+            setSortFunc(() => toBottomSort);
         } else {
             setSortFunc(undefined);
         }
@@ -78,8 +78,16 @@ const HeadToolbar = () => {
                 </Select>
             </div>
             <div className={'flex justify-center flex-row grow w-full relative'}>
-                <Link className={`${url.includes('/users') ? 'flex justify-center items-center text-zinc-200 w-28 hover:bg-blue-500 h-8 bg-blue-600 mr-2' : 'flex justify-center items-center w-28 hover:brightness-110 h-8 bg-zinc-600 mr-2'}`} to={'/users'}>Users</Link>
-                <Link className={`${url.includes('/products') ? 'flex justify-center items-center text-zinc-200 w-28 hover:bg-blue-500 h-8 bg-blue-600' : 'flex justify-center items-center w-28 hover:brightness-110 h-8 bg-zinc-600'}`} to={'/products'}>Products</Link>
+                <Link
+                    className={`${url.includes('/users') ? ( url.includes('/', 1) ? 'flex justify-center items-center text-zinc-200 duration-75 w-28 hover:brightness-110 h-8 bg-zinc-600 border-4 border-blue-600 mr-2'
+                            : 'flex justify-center items-center text-zinc-200 w-28 hover:bg-blue-500 h-8 bg-blue-600 mr-2') :
+                        'flex justify-center items-center w-28 hover:brightness-110 h-8 bg-zinc-600 mr-2'}`}
+                    to={'/users'}>Users</Link>
+                <Link
+                    className={`${url.includes('/products') ? ( url.includes('/', 1) ? 'flex justify-center items-center text-zinc-200 duration-75 w-28 hover:brightness-110 h-8 bg-zinc-600 border-4 border-blue-600'
+                            : 'flex justify-center items-center text-zinc-200 w-28 hover:bg-blue-500 h-8 bg-blue-600') :
+                        'flex justify-center items-center w-28 hover:brightness-110 h-8 bg-zinc-600'}`}
+                    to={'/products'}>Products</Link>
             </div>
             <div className={'text-zinc-400 right-6 absolute'}>{admin.name + ' '}|{' ' + admin.role}</div>
         </div>
