@@ -58,7 +58,7 @@ const ChartComponent = ({labels, data, type}:{labels:string[], data: ChartMetric
     })
 
     return (
-            <canvas ref={canvas} style={{position:"relative"}} />
+            <canvas ref={canvas} />
     );
 
 }

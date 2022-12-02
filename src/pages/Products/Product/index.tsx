@@ -44,7 +44,7 @@ const Product = () => {
                 title: 'Reporting departments',
                 url: '/reporting_departments'
             }, {title: 'Departmental indicators', url: '/departmental_indicators'}]} initial={'close'} total/>
-            <div className={'flex w-full h-full z-0 bg-zinc-800 justify-center items-end'}>
+            <div className={'flex w-full h-full min-w-[855px] z-0 bg-zinc-800 justify-center items-end'}>
                 <div className={'min-h-[750px] relative flex-col' +
                 ' bg-zinc-900 flex min-w-[750px] w-[80%] min-h-[530px] h-[85%]'}>
                     <div
@@ -82,10 +82,12 @@ const Product = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className={'flex w-full p-6 h-full relative justify-center items-center'}>
-                            <div className={'bg-zinc-700 relative w-full h-full'}>
-                                <ChartComponent labels={labels} data={chartData as ChartMetricType[]} type={'line'}/>
-                            </div>
+                        <div
+                            className={'bg-zinc-900 p-4 text-zinc-300 h-full overflow-x-auto max-w-full w-full relative flex flex-col items-center justify-start'}>
+                            <div
+                                className={'bg-zinc-700 p-4 text-zinc-300 h-full overflow-x-auto max-w-[95%] w-[95%] relative flex flex-col items-center justify-start'}>
+                            <ChartComponent labels={labels} data={chartData as ChartMetricType[]} type={'line'}/>
+                        </div>
                         </div>
                     </div>
                 </div>
