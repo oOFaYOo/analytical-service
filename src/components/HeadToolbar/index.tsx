@@ -1,14 +1,40 @@
-import React, {createContext, useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {Link, useLocation} from "react-router-dom";
 import {Admin, FilterContext} from "../../App";
 import {MenuItem, Select} from "@mui/material";
 
 const toTopSort = (arr:any[], key:string) => {
-    return arr.slice(0).sort((a, b) => a[key] - b[key])
+    // @ts-ignore
+    return arr.slice(0).sort((a, b) => {
+        if(typeof a[key] === 'number') {
+            return a[key] - b[key];
+        } else if(typeof a[key] === 'string') {
+            if (a[key] > b[key]) {
+                return 1;
+            }
+            if (a[key] < b[key]) {
+                return -1;
+            }
+            return 0;
+        }
+    })
 };
 
 const toBottomSort = (arr:any[], key:string) => {
-    return arr.slice(0).sort((a, b) =>  b[key] - a[key])
+    // @ts-ignore
+    return arr.slice(0).sort((a, b) => {
+        if(typeof a[key] === 'number') {
+            return b[key] - a[key];
+        } else if(typeof a[key] === 'string') {
+            if (a[key] < b[key]) {
+                return 1;
+            }
+            if (a[key] > b[key]) {
+                return -1;
+            }
+            return 0;
+        }
+    })
 };
 
 const HeadToolbar = () => {
@@ -39,6 +65,7 @@ const HeadToolbar = () => {
                     labelId='uncontrolled-native'
                     id='uncontrolled-native'
                     value={sort}
+                    disabled={url.includes('/', 1)}
                     onChange={
                         handleChange
                     }

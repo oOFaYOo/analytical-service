@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {CircularProgress} from "@mui/material";
-import {ApiContext} from "../../App";
+import {ApiContext, FilterContext} from "../../App";
 import SlidePanel from "../../components/SlidePanel";
 
 const Users = () => {
@@ -9,6 +9,7 @@ const Users = () => {
     const [data, setData] = useState<undefined | { name: string, id: string }[] | any>();
     const [search, setSearch] = useState<string>('');
     const api = useContext(ApiContext).api;
+    const {sortFunc} = useContext(FilterContext);
 
     useEffect(() => {
         (async () => {
@@ -37,7 +38,17 @@ const Users = () => {
                              className={'justify-start shadow-lg rounded-md mb-6 relative' +
                              ' items-center flex-col py-4 bg-zinc-900 pl-2 flex w-[520px] min-h-[60%]' +
                              ' max-h-[60%] overflow-y-scroll'}>
-                            {data.filter((item: any) => item.name.toLocaleLowerCase()
+                            {
+                                sortFunc ? (sortFunc(data, 'name').filter((item: any) => item.name.toLocaleLowerCase()
+                                    .indexOf(search.toLocaleLowerCase()) !== -1)
+                                    .map((item: { name: string, id: string }, i: number) => {
+                                        return (<Link className={'relative w-full'} key={i}
+                                                      to={'/users/' + item.id}>
+                                            <div className={'text-zinc-300 bg-zinc-700 flex relative w-full' +
+                                            ' mb-1 hover:bg-zinc-600 h-12 justify-center items-center'}
+                                            >{item.name}</div>
+                                        </Link>)
+                                    })) : (data.filter((item: any) => item.name.toLocaleLowerCase()
                                 .indexOf(search.toLocaleLowerCase()) !== -1)
                                 .map((item: { name: string, id: string }, i: number) => {
                                     return (<Link className={'relative w-full'} key={i}
@@ -46,7 +57,7 @@ const Users = () => {
                                         ' mb-1 hover:bg-zinc-600 h-12 justify-center items-center'}
                                         >{item.name}</div>
                                     </Link>)
-                                })}</div>
+                                }))}</div>
                     </div>
                     : <CircularProgress/>}
             </div>

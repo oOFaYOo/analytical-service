@@ -19,8 +19,6 @@ const Products = () => {
         })()
     }, [data]);
 
-    console.log(sortFunc)
-
     return (
         <div className={'fixed flex w-full h-full bg-zinc-800'}>
             <SlidePanel values={[{
