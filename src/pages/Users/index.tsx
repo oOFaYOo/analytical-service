@@ -21,11 +21,11 @@ const Users = () => {
     return (
         <>
             <Link to={'/'}/>
-            <div className={'relative min-w-[1170px] flex w-full h-full z-0 bg-zinc-800 justify-center items-center'}>
+            <div className={'relative min-w-[1070px] flex w-full h-full z-0 bg-zinc-800 justify-center items-center'}>
                 <SlidePanel values={[{
                     title: 'Reporting departments',
                     url: '/reporting_departments'
-                }, {title: 'Departmental indicators', url: '/departmental_indicators'}]}/>
+                }, {title: 'Departmental indicators', url: '/departmental_indicators'}]} initial={'close'}/>
                 {data ?
                     <div className={'relative flex flex-col w-full h-full justify-end items-center'}>
                         <input onChange={e => {

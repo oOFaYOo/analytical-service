@@ -56,27 +56,30 @@ const HeadToolbar = () => {
     };
 
     return (
-        <div style={{userSelect: 'none'}} className={'text-zinc-300 min-w-[1050px]' +
+        <div style={{userSelect: 'none'}} className={'text-zinc-300 min-w-[1070px]' +
         ' flex-row w-full ' +
         'h-12 absolute bg-zinc-700 ' +
         'z-50 flex justify-between items-center shadow-xl'}>
-            <div className={'absolute left-6 z-50'}>
-                <Select
-                    labelId='uncontrolled-native'
-                    id='uncontrolled-native'
-                    value={sort}
-                    disabled={url.includes('/', 1)}
-                    onChange={
-                        handleChange
-                    }
-                    className={'max-h-[32px] w-[150px] absolute hover:brightness-125'}
-                    style={{color: 'rgb(161 161 170)'}}
-                >
-                    <MenuItem value={1}>Original</MenuItem>
-                    <MenuItem value={2}>To the top</MenuItem>
-                    <MenuItem value={3}>To the bottom</MenuItem>
-                </Select>
-            </div>
+            {
+                url.includes('/reporting_departments') || url.includes('/departmental_indicators') ? null :
+                    <div className={'absolute left-6 z-50'}>
+                        <Select
+                            labelId='uncontrolled-native'
+                            id='uncontrolled-native'
+                            value={sort}
+                            disabled={url.includes('/', 1)}
+                            onChange={
+                                handleChange
+                            }
+                            className={'max-h-[32px] w-[150px] absolute hover:brightness-125'}
+                            style={{color: 'rgb(161 161 170)'}}
+                        >
+                            <MenuItem value={1}>Original</MenuItem>
+                            <MenuItem value={2}>To the top</MenuItem>
+                            <MenuItem value={3}>To the bottom</MenuItem>
+                        </Select>
+                    </div>
+            }
             <div className={'flex justify-center flex-row grow w-full relative'}>
                 <Link
                     className={`${url.includes('/users') ? ( url.includes('/', 1) ? 'flex justify-center items-center text-zinc-200 duration-75 w-28 hover:brightness-110 h-8 bg-zinc-600 border-4 border-blue-600 mr-2'

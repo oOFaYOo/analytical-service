@@ -3,13 +3,22 @@ import table from './mock/table.json';
 import userChart from './mock/userChart.json';
 import productChart from './mock/productChart.json';
 import products from "./mock/products.json";
+import departments from "./mock/departments.json"
 import axios from "axios";
+
 
 // class Api {
 //     getEmployees() {
 //         return axios({
 //             method: 'get',
 //             url: '/api/users',
+//         }).then(result => result.data);
+//     };
+//
+//     getDepartments() {
+//         return axios({
+//             method: 'get',
+//             url: '/api/departments',
 //         }).then(result => result.data);
 //     };
 //
@@ -64,6 +73,15 @@ import axios from "axios";
 // }
 
 class Api {
+
+    getDepartments() {
+        return new Promise(resolve => {
+            setTimeout(()=>{
+                resolve(departments)
+            }, 1000);
+        })
+    };
+
     getEmployees() {
         return new Promise(resolve => {
             setTimeout(() => {

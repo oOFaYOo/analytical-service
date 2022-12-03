@@ -7,6 +7,11 @@ export interface UserType {
     photo: string
 }
 
+export interface DepartmentsType extends TableMetricType{
+    address:string,
+    date:string,
+}
+
 export interface SlidePanelType {
     values: {title: string, url: string,}[],
     initial?: 'open' | 'close',
@@ -33,7 +38,7 @@ export interface TableMetricType {
 }
 
 export interface TableMetricsType {
-    total: TableMetricType,
+    total?: TableMetricType,
     data: TableMetricType[]
 }
 
@@ -68,5 +73,5 @@ export interface TitleType {
 export interface TableType {
     titles: TitleType[],
     data: TableMetricType[],
-    total: TableMetricType
+    total?: TableMetricType
 }

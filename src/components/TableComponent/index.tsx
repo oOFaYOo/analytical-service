@@ -41,19 +41,22 @@ const TableComponent = ({titles, data, total}: TableType) => {
                 <tbody className={'text-sm w-full'}>
                 <Rows/>
                 </tbody>
-                <tfoot className={'sticky bottom-0 z-30 border-zinc-600 h-12 border-x-2 border-solid bg-zinc-600'}>
                 {
-                    titles.map((item: TitleType, i) => {
-                            return (
-                                <HeaderFooterCell key={i} value={total[item.key]}
-                                                  plugin={item.plugin}
-                                                  position={item.position}
-                                                  width={item.width}/>
+                    total ?
+                        <tfoot className={'sticky bottom-0 z-30 border-zinc-600 h-12 border-x-2 border-solid bg-zinc-600'}>
+                        {
+                            titles.map((item: TitleType, i) => {
+                                    return (
+                                        <HeaderFooterCell key={i} value={total[item.key]}
+                                                          plugin={item.plugin}
+                                                          position={item.position}
+                                                          width={item.width}/>
+                                    )
+                                }
                             )
                         }
-                    )
+                        </tfoot> : null
                 }
-                </tfoot>
             </table>
     );
 };

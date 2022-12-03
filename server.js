@@ -8,7 +8,8 @@ server.use("/users", express.static('./build'));
 server.use("/users/:id", express.static('./build'));
 server.use("/products", express.static('./build'));
 server.use("/products/:id", express.static('./build'));
-
+server.use("/reporting_departments", express.static('./build'));
+server.use("/departmental_indicators", express.static('./build'));
 
 server.use('/api/users/:id/total',(req, res) => {
     const file = fs.createReadStream(path.join(__dirname, './src/mock/table.json'));
@@ -88,6 +89,10 @@ server.use('/api/products/:id',(req, res) => {
 
 server.use('/api/users',(req, res) => {
     res.sendFile(path.join(__dirname, './src/mock/users.json'))
+});
+
+server.use('/api/departments',(req, res) => {
+    res.sendFile(path.join(__dirname, './src/mock/departments.json'))
 });
 
 server.use('/api/products',(req, res) => {
