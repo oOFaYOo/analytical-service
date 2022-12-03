@@ -56,7 +56,7 @@ const HeadToolbar = () => {
     };
 
     return (
-        <div style={{userSelect: 'none'}} className={'text-zinc-300 min-w-[1070px]' +
+        <div style={{userSelect: 'none'}} className={'text-zinc-300' +
         ' flex-row w-full ' +
         'h-12 absolute bg-zinc-700 ' +
         'z-50 flex justify-between items-center shadow-xl'}>

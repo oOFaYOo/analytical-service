@@ -21,7 +21,7 @@ const Users = () => {
     return (
         <>
             <Link to={'/'}/>
-            <div className={'relative min-w-[1070px] flex w-full h-full z-0 bg-zinc-800 justify-center items-center'}>
+            <div className={'relative flex w-full h-full z-0 bg-zinc-800 justify-center items-center'}>
                 <SlidePanel values={[{
                     title: 'Reporting departments',
                     url: '/reporting_departments'

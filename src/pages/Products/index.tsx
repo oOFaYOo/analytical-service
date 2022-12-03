@@ -27,7 +27,7 @@ const Products = () => {
             }, {title: 'Departmental indicators', url: '/departmental_indicators'}]} initial={'close'} total/>
             {data ?
                 <div
-                    className={'relative overflow-y-scroll justify-evenly flex flex-row pl-[54px] pr-6 pt-20 pb-8 flex-wrap w-full h-full gap-6 content-start'}>
+                    className={'relative overflow-y-scroll justify-start flex flex-row pl-[54px] pr-6 pt-20 pb-8 flex-wrap w-full h-full gap-6 content-start'}>
                     {(
                         sortFunc !== undefined ? sortFunc(data, 'planComplete').map((item: ProductType, index: number) => {
                                 return <Link key={index} to={'/products/' + item.id}><Tile title={item.name}

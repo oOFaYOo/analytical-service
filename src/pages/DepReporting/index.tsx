@@ -17,7 +17,7 @@ const DepReporting = () => {
     }, [data])
 
     return (
-                <div className={'relative w-full min-w-[1070px] h-full bg-zinc-800 flex items-end justify-center'}>
+                <div className={'relative w-full h-full bg-zinc-800 flex items-end justify-center'}>
                     <SlidePanel values={[{
                         title: 'Reporting departments',
                         url: '/reporting_departments'
