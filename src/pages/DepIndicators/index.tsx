@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import SlidePanel from "../../components/SlidePanel";
-import {ApiContext, FilterContext} from "../../App";
+import {ApiContext} from "../../App";
 import {DepartmentsType, TitleType} from "../../types";
 import {CircularProgress} from "@mui/material";
 import TableComponent from "../../components/TableComponent";
@@ -8,7 +8,6 @@ import TableComponent from "../../components/TableComponent";
 const DepIndicators = () => {
     const api = useContext(ApiContext).api;
     const [data, setData] = useState<undefined | DepartmentsType[]>(undefined);
-    const {sortFunc} = useContext(FilterContext);
 
     useEffect(() => {
         (async () => {
@@ -96,7 +95,7 @@ const DepIndicators = () => {
                     <div className={'relative flex grow bg-zinc-800 h-full'}>
                         <div
                             className={'text-zinc-300 h-full overflow-x-auto max-w-full w-full relative flex flex-col items-start justify-start'}>
-                            <TableComponent titles={titles} data={sortFunc ? sortFunc(data, 'planComplete') : data}/>
+                            <TableComponent titles={titles} data={data}/>
                         </div>
                     </div>
                     : <div className={'relative w-full h-full flex justify-center items-center'}>

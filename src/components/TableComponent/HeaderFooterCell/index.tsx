@@ -1,7 +1,6 @@
 import React from 'react';
 import {CellType} from "../../../types";
 
-
 const HeaderFooterCell = ({value, position, width, plugin}:CellType) => {
 
     const cellWidth = width ? width : 100;

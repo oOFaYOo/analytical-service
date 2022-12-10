@@ -3,7 +3,7 @@ import {Link, useLocation} from "react-router-dom";
 import {Admin, FilterContext} from "../../App";
 import {MenuItem, Select} from "@mui/material";
 
-const toTopSort = (arr: any[], key: string) => {
+export const toTopSort = (arr: any[], key: string) => {
     // @ts-ignore
     return arr.slice(0).sort((a, b) => {
         if (typeof a[key] === 'number') {
@@ -20,7 +20,7 @@ const toTopSort = (arr: any[], key: string) => {
     })
 };
 
-const toBottomSort = (arr: any[], key: string) => {
+export const toBottomSort = (arr: any[], key: string) => {
     // @ts-ignore
     return arr.slice(0).sort((a, b) => {
         if (typeof a[key] === 'number') {

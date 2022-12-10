@@ -3,10 +3,9 @@ import {Chart, ChartItem, registerables} from 'chart.js';
 import {config as barConfig} from "./barChartConfig";
 import {config as lineConfig} from "./lineChartConfig";
 import {ChartMetricType} from "../../types";
-Chart.register(...registerables);
+Chart.register(...(registerables ?? []));
 
 const ChartComponent = ({labels, data, type}:{labels:string[], data: ChartMetricType[], type:'line'|'bar'}) => {
-
     const datasets = () => {
         if(type === 'bar'){
             return data.map((item:ChartMetricType) => {
@@ -60,7 +59,6 @@ const ChartComponent = ({labels, data, type}:{labels:string[], data: ChartMetric
     return (
             <canvas ref={canvas} />
     );
-
 }
 
 export default ChartComponent;
