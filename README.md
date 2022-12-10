@@ -1,6 +1,6 @@
 # Sandbox
 
-A small pet project that simulates an application for some kind of business.  
+A small personal project that simulates an application for some kind of business.  
 Using: React, TypeScript, Tailwind, React Testing Library, Jest.  
 Tested only on Google Chrome.
 
