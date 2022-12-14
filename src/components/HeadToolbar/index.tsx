@@ -9,10 +9,10 @@ export const toTopSort = (arr: any[], key: string) => {
         if (typeof a[key] === 'number') {
             return a[key] - b[key];
         } else if (typeof a[key] === 'string') {
-            if (a[key] > b[key]) {
+            if (a[key].toLowerCase() > b[key].toLowerCase()) {
                 return 1;
             }
-            if (a[key] < b[key]) {
+            if (a[key].toLowerCase() < b[key].toLowerCase()) {
                 return -1;
             }
             return 0;
@@ -26,10 +26,10 @@ export const toBottomSort = (arr: any[], key: string) => {
         if (typeof a[key] === 'number') {
             return b[key] - a[key];
         } else if (typeof a[key] === 'string') {
-            if (a[key] < b[key]) {
+            if (a[key].toLowerCase() < b[key].toLowerCase()) {
                 return 1;
             }
-            if (a[key] > b[key]) {
+            if (a[key].toLowerCase() > b[key].toLowerCase()) {
                 return -1;
             }
             return 0;
