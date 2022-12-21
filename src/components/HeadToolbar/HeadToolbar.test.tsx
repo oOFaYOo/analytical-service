@@ -31,7 +31,7 @@ test('HeadToolbar test',  async () => {
     expect(toBottomSort([{name:'b'}, {name:'a'}], 'name')[0].name).toBe('b');
     expect(toBottomSort([{name:'a'}, {name:'b'}], 'name')[0].name).toBe('b');
     expect(toBottomSort([{name:2}, {name:1}], 'name')[0].name).toBe(2);
-    expect(toBottomSort([{name:'a'}, {name:'a'}], 'name')[0].name).toBe('b');
+    expect(toBottomSort([{name:'a'}, {name:'a'}], 'name')[0].name).toBe('a');
 
 })
 
