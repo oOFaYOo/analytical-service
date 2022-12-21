@@ -75,8 +75,8 @@ const HeadToolbar = () => {
                             style={{color: 'rgb(161 161 170)'}}
                         >
                             <MenuItem value={1}>Original</MenuItem>
-                            <MenuItem value={2}>To the top</MenuItem>
-                            <MenuItem value={3}>To the bottom</MenuItem>
+                            <MenuItem value={2}>Low to high</MenuItem>
+                            <MenuItem value={3}>High to low</MenuItem>
                         </Select>
                     </div>
             }

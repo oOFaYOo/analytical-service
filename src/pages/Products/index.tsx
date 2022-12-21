@@ -34,7 +34,15 @@ const Products = () => {
                                                                                            plan={item.plan} fact={item.fact}
                                                                                            planComplete={item.planComplete}/></Link>
                             }) :
-                            data.map((item: ProductType, index: number) => {
+                            data.sort((a, b) => {
+                                if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                                    return 1;
+                                }
+                                if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                                    return -1;
+                                }
+                                return 0;
+                            }).map((item: ProductType, index: number) => {
                                 return <Link key={index} to={'/products/' + item.id}><Tile title={item.name}
                                                                                            plan={item.plan}
                                                                                            fact={item.fact}
