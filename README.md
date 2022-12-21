@@ -5,7 +5,7 @@ Using: React, TypeScript, Tailwind, React Testing Library, Jest.
 Tested only on Google Chrome.
 
 ### Hosted instance:
-https://o-o-fa-y-oo-github-n7zd1o5ks-nikatseleva-gmailcom.vercel.app
+https://o-o-fa-y-oo-github-hyj22mion-nikatseleva-gmailcom.vercel.app
 
 ### Demonstration:
 ![demo](https://github.com/oOFaYOo/sandbox/blob/main/public/demo.gif)
