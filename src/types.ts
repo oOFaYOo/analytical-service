@@ -1,24 +1,24 @@
 import {ReactJSXElement} from "@emotion/react/types/jsx-namespace";
 
-export interface UserType {
+export interface IUser {
     name: string,
     id: string,
     position: string,
     photo: string
 }
 
-export interface DepartmentsType extends TableMetricType{
+export interface IDepartments extends ITableMetric{
     address:string,
     date:string,
 }
 
-export interface SlidePanelType {
+export interface ISlidePanel {
     values: {title: string, url: string,}[],
     initial?: 'open' | 'close',
     total?: boolean,
 }
 
-export interface ProductType {
+export interface IProduct {
     id: string,
     name: string,
     plan: number,
@@ -27,7 +27,7 @@ export interface ProductType {
     managers: {name:string, id:string}[]
 }
 
-export interface TableMetricType {
+export interface ITableMetric {
     id:string,
     name: string,
     plan: number,
@@ -37,41 +37,53 @@ export interface TableMetricType {
     [key: string]: string|number
 }
 
-export interface TableMetricsType {
-    total?: TableMetricType,
-    data: TableMetricType[]
+export interface ITableMetrics {
+    total?: ITableMetric,
+    data: ITableMetric[]
 }
 
-export interface ChartMetricType {
+export interface IChartMetric {
     name: string,
     year: string,
     color: string,
     values: string[]
 }
 
-export interface SidePanelType {
-    user: UserType,
-    data: TableMetricType | undefined
+export interface ISidePanel {
+    user: IUser,
+    data: ITableMetric | undefined
 }
 
-export interface CellType {
-    row?:TableMetricType,
+export interface ICell {
+    row?:ITableMetric,
     value: number | string,
     width?:number | string,
     position?: 'left' | 'right' | 'center',
-    plugin?: (value:number | string, row?:TableMetricType) => ReactJSXElement | string | number,
+    plugin?: (value:number | string, row?:ITableMetric) => ReactJSXElement | string | number,
 }
 
-export interface TitleType {
+export interface ITitle {
     name: string,
     key: string,
     position?: 'left' | 'right' | 'center',
     width?: number,
-    plugin?: (value: number | string, row?:TableMetricType) => ReactJSXElement | string | number
+    plugin?: (value: number | string, row?:ITableMetric) => ReactJSXElement | string | number
 }
 
-export interface TableType {
-    titles: TitleType[],
-    data: TableMetricType[],
-    total?: TableMetricType
+export interface ITable {
+    titles: ITitle[],
+    data: ITableMetric[],
+    total?: ITableMetric
+}
+
+export interface IApiClient<T> {
+    getDepartments():Promise<IDepartments[]>
+    getUsers():Promise<IUser[]>
+    getUser(id:T):Promise<IUser>
+    getTotalTableMetrics(id:T):Promise<ITableMetric>
+    getTableMetrics(id:T):Promise<ITableMetric[]>
+    getUserChartMetrics(id:T):Promise<IChartMetric[]>
+    getProducts():Promise<IProduct[]>
+    getProduct(id:T):Promise<IProduct>
+    getProductChartMetrics(id:T):Promise<IChartMetric[]>
 }

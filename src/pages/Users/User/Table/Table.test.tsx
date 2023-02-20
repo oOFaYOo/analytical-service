@@ -14,9 +14,9 @@ test("Table test", async () => {
             <MemoryRouter>
                 <ApiContext.Provider value={{
                     api: {
-                        getEmployees: jest.fn(),
+                        getUsers: jest.fn(),
                         getDepartments: jest.fn(),
-                        getEmployee: jest.fn(),
+                        getUser: jest.fn(),
                         getTotalTableMetrics: jest.fn(),
                         getTableMetrics: jest.fn().mockImplementation((id:string) => {
                             return Promise.resolve(

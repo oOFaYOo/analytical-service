@@ -4,25 +4,19 @@ import HeadToolBar from "./components/HeadToolbar";
 import Users from "./pages/Users";
 import Products from "./pages/Products";
 import User from "./pages/Users/User";
-import Api from "./api";
+import {ApiClient} from "./api/ApiClient";
+import {FakeApiClient} from "./api/FakeApiClient";
 import Product from "./pages/Products/Product";
 import DepIndicators from "./pages/DepIndicators";
 import DepReporting from "./pages/DepReporting";
 
-const api = new Api();
+const api = new FakeApiClient();
 export const Admin = createContext({name: "", role: ""});
 export const ApiContext = createContext({api: api});
-export const FilterContext = createContext<{ sortFunc: undefined | ((arr:any, key:string) => any), setSortFunc: any }>({
-    sortFunc: undefined,
-    setSortFunc: undefined
-})
 
 const App = () => {
 
-    const [filter, setFilter] = useState(undefined);
-
     return (<>
-        <FilterContext.Provider value={{sortFunc: filter, setSortFunc: setFilter}}>
             <Admin.Provider value={{name: 'Christopher Hunter', role: "Admin"}}>
                 <HeadToolBar/>
             </Admin.Provider>
@@ -37,7 +31,6 @@ const App = () => {
                     <Route path="/departmental_indicators" element={<DepIndicators/>}/>
                 </Routes>
             </ApiContext.Provider>
-        </FilterContext.Provider>
     </>);
 };
 

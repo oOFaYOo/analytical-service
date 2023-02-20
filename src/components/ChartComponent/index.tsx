@@ -2,13 +2,13 @@ import React, {useEffect, useRef} from "react";
 import {Chart, ChartItem, registerables} from 'chart.js';
 import {config as barConfig} from "./barChartConfig";
 import {config as lineConfig} from "./lineChartConfig";
-import {ChartMetricType} from "../../types";
+import {IChartMetric} from "../../types";
 Chart.register(...(registerables ?? []));
 
-const ChartComponent = ({labels, data, type}:{labels:string[], data: ChartMetricType[], type:'line'|'bar'}) => {
+const ChartComponent = ({labels, data, type}:{labels:string[], data: IChartMetric[], type:'line'|'bar'}) => {
     const datasets = () => {
         if(type === 'bar'){
-            return data.map((item:ChartMetricType) => {
+            return data.map((item:IChartMetric) => {
                 return {
                     stack: item.year,
                     label: item.name + ' ' + item.year,
@@ -18,7 +18,7 @@ const ChartComponent = ({labels, data, type}:{labels:string[], data: ChartMetric
                 }
             });
         } else if('line') {
-            return data.map((item:ChartMetricType) => {
+            return data.map((item:IChartMetric) => {
                 return {
                     label: item.name + ' ' + item.year,
                     data: item.values,

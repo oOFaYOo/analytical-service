@@ -1,7 +1,7 @@
 import React from "react";
 import Users from "./index";
 import {fireEvent, render, screen} from "@testing-library/react";
-import {ApiContext, FilterContext} from "../../App";
+import {ApiContext} from "../../App";
 import 'regenerator-runtime/runtime';
 import {MemoryRouter} from "react-router-dom";
 
@@ -14,7 +14,7 @@ test("Users test", async () => {
             <MemoryRouter>
                 <ApiContext.Provider value={{
                     api: {
-                        getEmployees: jest.fn().mockImplementation(() => {
+                        getUsers: jest.fn().mockImplementation(() => {
                             return Promise.resolve(
                                 [
                                     {
@@ -26,7 +26,7 @@ test("Users test", async () => {
                                 ])
                         }),
                         getDepartments: jest.fn(),
-                        getEmployee: jest.fn(),
+                        getUser: jest.fn(),
                         getTotalTableMetrics: jest.fn(),
                         getTableMetrics: jest.fn(),
                         getUserChartMetrics: jest.fn(),
@@ -35,9 +35,7 @@ test("Users test", async () => {
                         getProductChartMetrics: jest.fn(),
                     }
                 }}>
-                    <FilterContext.Provider value={{sortFunc: sortFunc, setSortFunc: undefined}}>
-                        <Users/>
-                    </FilterContext.Provider>
+                    <Users/>
                 </ApiContext.Provider>
             </MemoryRouter>
         )
@@ -48,11 +46,6 @@ test("Users test", async () => {
     await Promise.resolve();
     jest.advanceTimersByTime(2000);
     rerender(<Comp/>)
-
-    rerender(<Comp sortFunc={(arr: any, key: string) => {
-        return [{name: 'name', id: 'id'}]
-    }
-    }/>)
 
     const search = screen.getByPlaceholderText('John Doe . . .');
     fireEvent.change(search, {

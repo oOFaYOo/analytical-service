@@ -1,7 +1,7 @@
 import React from 'react';
-import {CellType} from "../../../types";
+import {ICell} from "../../../types";
 
-const Cell = ({value, plugin, position, width, row}:CellType) => {
+const Cell = ({value, plugin, position, width, row}:ICell) => {
 
     const cellWidth = width ? width : 'auto';
 

@@ -12,9 +12,9 @@ test("Chart test", async () => {
         return (
             <ApiContext.Provider value={{
                 api: {
-                    getEmployees: jest.fn(),
+                    getUsers: jest.fn(),
                     getDepartments: jest.fn(),
-                    getEmployee: jest.fn(),
+                    getUser: jest.fn(),
                     getTotalTableMetrics: jest.fn(),
                     getTableMetrics: jest.fn(),
                     getUserChartMetrics: jest.fn().mockImplementation((id:string) => {

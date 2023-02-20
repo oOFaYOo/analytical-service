@@ -1,22 +1,24 @@
 import React, {useContext, useEffect, useState} from 'react';
 import SlidePanel from "../../components/SlidePanel";
 import {ApiContext} from "../../App";
-import {DepartmentsType, TitleType} from "../../types";
+import {IDepartments, ITitle} from "../../types";
 import {CircularProgress} from "@mui/material";
 import TableComponent from "../../components/TableComponent";
 
 const DepIndicators = () => {
     const api = useContext(ApiContext).api;
-    const [data, setData] = useState<undefined | DepartmentsType[]>(undefined);
+    const [data, setData] = useState<undefined | IDepartments[]>(undefined);
 
     useEffect(() => {
-        (async () => {
-            const data = await api.getDepartments() as undefined | DepartmentsType[];
-            setData(data)
-        })()
+        if(!data){
+            (async () => {
+                const data = await api.getDepartments() as undefined | IDepartments[];
+                setData(data)
+            })()
+        }
     }, [data])
 
-    const titles: TitleType[] = [
+    const titles: ITitle[] = [
         {
             name: 'Department',
             key: 'name',

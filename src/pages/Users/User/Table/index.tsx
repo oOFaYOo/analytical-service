@@ -1,22 +1,22 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {TableMetricType, TitleType} from '../../../../types'
+import {ITableMetric, ITitle} from '../../../../types'
 import {CircularProgress, Tooltip} from "@mui/material";
 import TableComponent from "../../../../components/TableComponent";
 import {ApiContext} from "../../../../App";
 import {Link} from "react-router-dom";
 
-const Table = ({id, total}:{id:string|undefined, total:TableMetricType}) => {
+const Table = ({id, total}:{id:string|undefined, total:ITableMetric}) => {
     const api = useContext(ApiContext).api;
 
-    const [tableData, setTableData] = useState<undefined | TableMetricType[]>(undefined);
+    const [tableData, setTableData] = useState<undefined | ITableMetric[]>(undefined);
 
-    const titles:TitleType[] = [
+    const titles:ITitle[] = [
         {
             name: 'Product Name',
             key: 'name',
             position: 'center',
             width: 150,
-            plugin: ((value:number|string, row?:TableMetricType) => {
+            plugin: ((value:number|string, row?:ITableMetric) => {
                 return (
                     value.toString().length > 20 ?
                         <Tooltip title={value} arrow placement={"right"}>
@@ -96,10 +96,12 @@ const Table = ({id, total}:{id:string|undefined, total:TableMetricType}) => {
     ];
 
         useEffect(() => {
-            (async () => {
-                const data = await api.getTableMetrics(id as string);
-                setTableData(data as TableMetricType[])
-            })();
+            if(!tableData){
+                (async () => {
+                    const data = await api.getTableMetrics(id as string);
+                    setTableData(data as ITableMetric[])
+                })();
+            }
         }, [tableData]);
 
     if (!tableData || !id || !total) {

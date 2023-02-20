@@ -1,12 +1,12 @@
 import {render} from "@testing-library/react";
 import React from "react";
 import TableComponent from "./index";
-import {TitleType} from "../../types";
+import {ITitle} from "../../types";
 
 
 test('TableComponent test', () => {
 
-    const titles: TitleType[] = [
+    const titles: ITitle[] = [
         {
             name: 'Department',
             key: 'name',

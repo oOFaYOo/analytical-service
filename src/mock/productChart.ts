@@ -1,10 +1,10 @@
-{
-  "5df4g65d": [
+const productChart = {
+  '5df4g65d': [
     {
-      "name": "Golden Compass",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Golden Compass",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -20,10 +20,10 @@
       ]
     },
     {
-      "name": "Golden Compass",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Golden Compass",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -39,12 +39,12 @@
       ]
     }
   ],
-  "7g8df7gd89f7d98f": [
+  '7g8df7gd89f7d98f': [
     {
-      "name": "Sirius",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Sirius",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -60,10 +60,10 @@
       ]
     },
     {
-      "name": "Sirius",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Sirius",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -79,12 +79,12 @@
       ]
     }
   ],
-  "vf8v787v8d": [
+  'vf8v787v8d': [
     {
-      "name": "Spectrum Technologies of the Future",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Spectrum Technologies of the Future",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -100,10 +100,10 @@
       ]
     },
     {
-      "name": "Spectrum Technologies of the Future",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Spectrum Technologies of the Future",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -119,12 +119,12 @@
       ]
     }
   ],
-  "0r2cercf2r": [
+  '0r2cercf2r': [
     {
-      "name": "Trading aggregator",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Trading aggregator",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -140,10 +140,10 @@
       ]
     },
     {
-      "name": "Trading aggregator",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Trading aggregator",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -159,12 +159,12 @@
       ]
     }
   ],
-  "ium798knu8": [
+  'ium798knu8': [
     {
-      "name": "Blue Fox",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Blue Fox",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -180,10 +180,10 @@
       ]
     },
     {
-      "name": "Blue Fox",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Blue Fox",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -199,12 +199,12 @@
       ]
     }
   ],
-  "82cghgj0d02f3g": [
+  '82cghgj0d02f3g': [
     {
-      "name": "Andromeda",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Andromeda",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -220,10 +220,10 @@
       ]
     },
     {
-      "name": "Andromeda",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Andromeda",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -239,12 +239,12 @@
       ]
     }
   ],
-  "g8hv0d988c4n98ks": [
+  'g8hv0d988c4n98ks': [
     {
-      "name": "Aquarius",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Aquarius",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -260,10 +260,10 @@
       ]
     },
     {
-      "name": "Aquarius",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Aquarius",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -279,12 +279,12 @@
       ]
     }
   ],
-  "9yb8j993y": [
+  '9yb8j993y': [
     {
-      "name": "Canis Major",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Canis Major",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -300,10 +300,10 @@
       ]
     },
     {
-      "name": "Canis Major",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Canis Major",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -319,12 +319,12 @@
       ]
     }
   ],
-  "qw87q823": [
+  'qw87q823': [
     {
-      "name": "Capricorn",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Capricorn",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -340,10 +340,10 @@
       ]
     },
     {
-      "name": "Capricorn",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Capricorn",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -359,12 +359,12 @@
       ]
     }
   ],
-  "0b203tvr": [
+  '0b203tvr': [
     {
-      "name": "Cassiopeia",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Cassiopeia",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -380,10 +380,10 @@
       ]
     },
     {
-      "name": "Cassiopeia",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Cassiopeia",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -399,12 +399,12 @@
       ]
     }
   ],
-  "y0hr3v20": [
+  'y0hr3v20': [
     {
-      "name": "Horologium",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Horologium",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -420,10 +420,10 @@
       ]
     },
     {
-      "name": "Horologium",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Horologium",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -439,12 +439,12 @@
       ]
     }
   ],
-  "8h78t2byj": [
+  '8h78t2byj': [
     {
-      "name": "Eridanus",
-      "year": "2020",
-      "color": "rgb(220,188,78)",
-      "values": [
+      name: "Eridanus",
+      year: "2020",
+      color: "rgb(220,188,78)",
+      values: [
         103052,
         95132,
         65452,
@@ -460,10 +460,10 @@
       ]
     },
     {
-      "name": "Eridanus",
-      "year": "2021",
-      "color": "rgb(46,161,182)",
-      "values": [
+      name: "Eridanus",
+      year: "2021",
+      color: "rgb(46,161,182)",
+      values: [
         23267,
         12354,
         32344,
@@ -479,4 +479,5 @@
       ]
     }
   ]
-}
+};
+export default productChart;

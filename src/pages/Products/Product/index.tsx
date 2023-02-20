@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {ApiContext} from "../../../App";
-import {ChartMetricType, ProductType} from "../../../types";
+import {IChartMetric, IProduct} from "../../../types";
 import {Link, useParams} from "react-router-dom";
 import {CircularProgress, Tooltip} from "@mui/material";
 import ChartComponent from "../../../components/ChartComponent";
@@ -13,22 +13,26 @@ const Product = () => {
     const id = useParams().id as string;
     const labels = months;
 
-    const [data, setData] = useState<undefined | ProductType>(undefined);
+    const [data, setData] = useState<undefined | IProduct>(undefined);
 
-    const [chartData, setChartData] = useState<undefined | ChartMetricType[]>(undefined);
+    const [chartData, setChartData] = useState<undefined | IChartMetric[]>(undefined);
 
     useEffect(() => {
-        (async () => {
-            const data = await api.getProductChartMetrics(id as string);
-            setChartData(data as ChartMetricType[])
-        })();
+        if(!chartData){
+            (async () => {
+                const data = await api.getProductChartMetrics(id as string);
+                setChartData(data as IChartMetric[])
+            })();
+        }
     }, [chartData]);
 
     useEffect(() => {
-        (async () => {
-            const product = await api.getProduct(id) as ProductType;
-            setData(product);
-        })();
+        if(!data){
+            (async () => {
+                const product = await api.getProduct(id) as IProduct;
+                setData(product);
+            })();
+        }
     }, [data]);
 
     return (
@@ -79,7 +83,7 @@ const Product = () => {
                                 className={'bg-zinc-900 p-4 text-zinc-300 h-full overflow-x-auto max-w-full w-full relative flex flex-col items-center justify-start'}>
                                 <div
                                     className={'bg-zinc-700 p-4 text-zinc-300 h-full overflow-x-auto max-w-[95%] w-[95%] relative flex flex-col items-center justify-start'}>
-                                    <ChartComponent labels={labels} data={chartData as ChartMetricType[]} type={'line'}/>
+                                    <ChartComponent labels={labels} data={chartData as IChartMetric[]} type={'line'}/>
                                 </div>
                             </div>
                         </div>

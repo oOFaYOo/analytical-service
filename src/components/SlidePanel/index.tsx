@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import {SlidePanelType} from "../../types";
+import {ISlidePanel} from "../../types";
 import {Link, useLocation} from "react-router-dom";
 
-const SlidePanel = ({values, initial = 'open', total}: SlidePanelType) => {
+const SlidePanel = ({values, initial = 'open', total}: ISlidePanel) => {
 
     const [open, setOpen] = useState<boolean>(initial === 'open')
     const url = useLocation().pathname;

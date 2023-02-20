@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {ApiContext} from "../../../App";
-import {TableMetricType, UserType} from '../../../types';
+import {ITableMetric, IUser} from '../../../types';
 import SidePanel from "../../../components/SidePanel";
 import Table from "./Table";
 import Chart from "./Chart";
@@ -10,25 +10,29 @@ import SlidePanel from "../../../components/SlidePanel";
 const User = () => {
 
     const api = useContext(ApiContext).api;
-    const [user, setUser] = useState<undefined | UserType>(undefined);
-    const [total, setTotal] = useState<undefined | TableMetricType>(undefined);
+    const [user, setUser] = useState<undefined | IUser>(undefined);
+    const [total, setTotal] = useState<undefined | ITableMetric>(undefined);
 
     const id = useParams().id as string;
 
     const [info, setInfo] = useState<'charts'|'table'>('table');
 
     useEffect(()=>{
-        (async () => {
-            const data = await api.getEmployee(id) as UserType;
-            setUser(data);
-        })();
+        if(!user){
+            (async () => {
+                const data = await api.getUser(id) as IUser;
+                setUser(data);
+            })();
+        }
     },[user]);
 
     useEffect(() => {
-        (async () => {
-            const data = await api.getTotalTableMetrics(id as string);
-            setTotal(data as TableMetricType)
-        })();
+        if(!total){
+            (async () => {
+                const data = await api.getTotalTableMetrics(id);
+                setTotal(data as ITableMetric)
+            })();
+        }
     }, [total]);
 
     return (
@@ -39,7 +43,7 @@ const User = () => {
             }, {title: 'Departmental indicators', url: '/departmental_indicators'}]} initial={'close'} total/>
             <div className={'min-h-[750px] relative flex-row' +
             ' bg-zinc-900 flex min-w-[750px] w-[80%] min-h-[530px] h-[85%]'}>
-                <SidePanel user={user as UserType} data={total} />
+                <SidePanel user={user as IUser} data={total} />
                 <div className={'p-4 flex flex-col overflow-x-auto justify-center items-center grow relative max-w-[90%]'}>
                     <div className={'text-zinc-300 mb-4 w-full relative flex flex-row justify-center'}>
                         <button onClick={() => {setInfo('table')}}
@@ -55,7 +59,7 @@ const User = () => {
                         {!user?.id
                             ? null
                             : info === 'table'
-                                ? <Table id={user.id} total={total as TableMetricType}/>
+                                ? <Table id={user.id} total={total as ITableMetric}/>
                                 : <Chart id={user.id} />}
                     </div>
                 </div>

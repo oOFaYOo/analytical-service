@@ -1,22 +1,23 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {CircularProgress} from "@mui/material";
-import {ApiContext, FilterContext} from "../../App";
+import {ApiContext} from "../../App";
 import {Link} from "react-router-dom";
 import Tile from "../../components/Tile";
-import {ProductType} from "../../types";
+import {IProduct} from "../../types";
 import SlidePanel from "../../components/SlidePanel";
 
 const Products = () => {
 
     const api = useContext(ApiContext).api;
-    const {sortFunc} = useContext(FilterContext);
-    const [data, setData] = useState<undefined | ProductType[]>();
+    const [data, setData] = useState<undefined | IProduct[]>();
 
     useEffect(() => {
-        (async () => {
-            const data = await api.getProducts() as undefined | ProductType[];
-            setData(data);
-        })()
+        if(!data){
+            (async () => {
+                const data = await api.getProducts() as IProduct[];
+                setData(data);
+            })()
+        }
     }, [data]);
 
     return (
@@ -29,24 +30,17 @@ const Products = () => {
                 <div
                     className={'relative overflow-y-scroll justify-start flex flex-row pl-[54px] pr-6 pt-20 pb-8 flex-wrap w-full h-full gap-6 content-start'}>
                     {(
-                        sortFunc !== undefined ? sortFunc(data, 'planComplete').map((item: ProductType, index: number) => {
-                                return <Link key={index} to={'/products/' + item.id}><Tile title={item.name}
-                                                                                           plan={item.plan} fact={item.fact}
-                                                                                           planComplete={item.planComplete}/></Link>
-                            }) :
                             data.sort((a, b) => {
-                                if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                                    return 1;
-                                }
                                 if (a.name.toLowerCase() < b.name.toLowerCase()) {
                                     return -1;
-                                }
-                                return 0;
-                            }).map((item: ProductType, index: number) => {
-                                return <Link key={index} to={'/products/' + item.id}><Tile title={item.name}
-                                                                                           plan={item.plan}
-                                                                                           fact={item.fact}
-                                                                                           planComplete={item.planComplete}/></Link>
+                                } else return 0;
+                            }).map((item: IProduct, index: number) => {
+                                return <Link key={index} to={'/products/' + item.id}>
+                                             <Tile title={item.name}
+                                                   plan={item.plan}
+                                                   fact={item.fact}
+                                                   planComplete={item.planComplete}/>
+                                        </Link>
                             })
                     )}
                 </div>

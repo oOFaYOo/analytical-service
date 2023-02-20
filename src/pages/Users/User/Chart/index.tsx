@@ -1,22 +1,24 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {CircularProgress} from "@mui/material";
 import ChartComponent from "../../../../components/ChartComponent";
-import {ChartMetricType} from "../../../../types";
+import {IChartMetric} from "../../../../types";
 import {ApiContext} from "../../../../App";
 import {months} from "../../../../data";
 
 const Chart = ({id}:{id:string|undefined}) => {
     const api = useContext(ApiContext).api;
 
-    const [chartData, setChartData] = useState<undefined | ChartMetricType[]>(undefined);
+    const [chartData, setChartData] = useState<undefined | IChartMetric[]>(undefined);
 
     const labels = months;
 
     useEffect(() => {
-        (async () => {
-            const data = await api.getUserChartMetrics(id as string);
-            setChartData(data as ChartMetricType[])
-        })();
+        if(!chartData){
+            (async () => {
+                const data = await api.getUserChartMetrics(id as string);
+                setChartData(data as IChartMetric[])
+            })();
+        }
     }, [chartData]);
 
     if (!chartData || !id) {
