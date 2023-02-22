@@ -41,11 +41,11 @@ const Product = () => {
                 title: 'Reporting departments',
                 url: '/reporting_departments'
             }, {title: 'Departmental indicators', url: '/departmental_indicators'}]} initial={'close'} total/>
-            <div className={'flex w-full h-full min-w-[855px] z-0 bg-zinc-800 justify-center items-end'}>
-                {data ? <div className={'min-h-[750px] relative flex-col' +
+            <div className={'flex w-full h-full min-w-[855px] z-0 justify-center items-end'}>
+                {data ? <div className={'min-h-[750px] rounded-t relative flex-col' +
                     ' bg-zinc-900 flex min-w-[750px] w-[80%] min-h-[530px] h-[85%]'}>
                         <div
-                            className={'max-h-[70px] min-h-[70px] w-full bg-zinc-600 text-zinc-300 items-center justify-between flex px-6 text-3xl'}>
+                            className={'max-h-[70px] min-h-[70px] rounded-t w-full bg-zinc-700 text-zinc-300 items-center justify-between flex px-6 text-3xl'}>
                             <p>{data.name}</p>
                             <div className={'flex flex-row text-lg grow justify-end text-zinc-400'}>
                                 <p className={'mx-8 drop-shadow-md'}>{Math.round(data.fact)} fact</p>
@@ -73,7 +73,7 @@ const Product = () => {
                                                         </div>
                                                     </Tooltip> :
                                                     <div
-                                                        className={'text-zinc-400 px-6 py-2 hover:brightness-150 hover:font-medium hover:shadow-md'}>{item.name}</div>}
+                                                        className={'text-zinc-400 px-6 py-2 hover:brightness-150 hover:font-medium shadow hover:shadow-md'}>{item.name}</div>}
                                             </Link>
                                         })}
                                     </div>
@@ -82,7 +82,7 @@ const Product = () => {
                             <div
                                 className={'bg-zinc-900 p-4 text-zinc-300 h-full overflow-x-auto max-w-full w-full relative flex flex-col items-center justify-start'}>
                                 <div
-                                    className={'bg-zinc-700 p-4 text-zinc-300 h-full overflow-x-auto max-w-[95%] w-[95%] relative flex flex-col items-center justify-start'}>
+                                    className={'bg-zinc-700/30 p-4 text-zinc-300 h-full overflow-x-auto max-w-[95%] w-[95%] relative flex flex-col items-center justify-start'}>
                                     <ChartComponent labels={labels} data={chartData as IChartMetric[]} type={'line'}/>
                                 </div>
                             </div>

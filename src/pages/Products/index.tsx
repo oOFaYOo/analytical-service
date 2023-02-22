@@ -21,7 +21,7 @@ const Products = () => {
     }, [data]);
 
     return (
-        <div className={'fixed flex w-full h-full bg-zinc-800'}>
+        <div className={'fixed flex w-full h-full'}>
             <SlidePanel values={[{
                 title: 'Reporting departments',
                 url: '/reporting_departments'

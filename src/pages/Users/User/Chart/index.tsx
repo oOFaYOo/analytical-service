@@ -30,7 +30,7 @@ const Chart = ({id}:{id:string|undefined}) => {
     }
 
     return (
-        <div className={'bg-zinc-700 p-4 text-zinc-300 h-full overflow-x-auto max-w-full w-full relative flex flex-col items-start justify-start'}>
+        <div className={'bg-zinc-700/30 p-4 text-zinc-300 h-full overflow-x-auto max-w-full w-full relative flex flex-col items-start justify-start'}>
             <ChartComponent labels={labels} data={chartData} type={'bar'}/>
         </div>
     );

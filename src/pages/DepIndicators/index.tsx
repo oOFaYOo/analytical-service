@@ -87,14 +87,14 @@ const DepIndicators = () => {
     ];
 
     return (
-        <div className={'relative w-full h-full bg-zinc-800 flex items-end justify-center'}>
+        <div className={'relative w-full h-full flex items-end justify-center'}>
             <SlidePanel values={[{
                 title: 'Reporting departments',
                 url: '/reporting_departments'
             }, {title: 'Departmental indicators', url: '/departmental_indicators'}]}/>
-            <div className={'bg-zinc-900 min-w-[700px] w-[60%] h-[80%] mb-6'}>
+            <div className={'min-w-[700px] rounded overflow-hidden w-[60%] h-[80%] mb-6'}>
                 {data ?
-                    <div className={'relative flex grow bg-zinc-800 h-full'}>
+                    <div className={'relative flex grow h-full'}>
                         <div
                             className={'text-zinc-300 h-full overflow-x-auto max-w-full w-full relative flex flex-col items-start justify-start'}>
                             <TableComponent titles={titles} data={data}/>

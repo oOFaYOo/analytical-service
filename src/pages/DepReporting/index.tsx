@@ -19,17 +19,17 @@ const DepReporting = () => {
     }, [data])
 
     return (
-                <div className={'relative w-full h-full bg-zinc-800 flex items-end justify-center'}>
+                <div className={'relative w-full h-full flex items-end justify-center'}>
                     <SlidePanel values={[{
                         title: 'Reporting departments',
                         url: '/reporting_departments'
                     }, {title: 'Departmental indicators', url: '/departmental_indicators'}]}/>
-                    <div className={'bg-zinc-900 min-w-[700px] w-[700px] h-[80%] mb-4 p-2'}>
-                        {data ?  <div className={'overflow-x-auto relative w-full h-full'}>
+                    <div className={'min-w-[700px] w-[700px] h-[80%] mb-4 p-2'}>
+                        {data ?  <div className={'overflow-x-auto shadow-lg rounded relative w-full h-full'}>
                             {
                                 data?.map((item, index) => {
                                     return (<div className={'text-zinc-300 bg-zinc-700 flex relative w-full' +
-                                    ' mb-1 hover:bg-zinc-600 h-12 justify-center items-center px-2'}
+                                    ' mb-1 hover:bg-zinc-600 rounded h-12 justify-center items-center px-2'}
                                     >{item.address}</div>)
                                 })
                             }

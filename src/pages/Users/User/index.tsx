@@ -36,24 +36,24 @@ const User = () => {
     }, [total]);
 
     return (
-        <div className={'relative flex w-full h-full z-0 bg-zinc-800 justify-center items-end'}>
+        <div className={'relative flex w-full h-full z-0 justify-center items-end'}>
             <SlidePanel values={[{
                 title: 'Reporting departments',
                 url: '/reporting_departments'
             }, {title: 'Departmental indicators', url: '/departmental_indicators'}]} initial={'close'} total/>
-            <div className={'min-h-[750px] relative flex-row' +
+            <div className={'min-h-[750px] rounded-t overflow-hidden relative flex-row' +
             ' bg-zinc-900 flex min-w-[750px] w-[80%] min-h-[530px] h-[85%]'}>
                 <SidePanel user={user as IUser} data={total} />
-                <div className={'p-4 flex flex-col overflow-x-auto justify-center items-center grow relative max-w-[90%]'}>
-                    <div className={'text-zinc-300 mb-4 w-full relative flex flex-row justify-center'}>
+                <div className={'px-4 pb-4 pt-1 flex flex-col overflow-x-auto justify-center items-center grow relative max-w-[95%]'}>
+                    <div className={'text-zinc-300 h-12 w-full relative flex flex-row justify-center'}>
                         <button onClick={() => {setInfo('table')}}
                                 className={`${info === 'table' ?
-                                    'text-zinc-200 w-28 hover:bg-blue-500 h-8 bg-blue-600 mr-2':
-                                    'w-28 hover:bg-zinc-600 h-8 bg-zinc-700 mr-2'}`}>Table</button>
+                                    'text-zinc-200 w-32 rounded duration-150 hover:bg-blue-500 h-8 bg-blue-600 mr-2':
+                                    'w-32 hover:bg-zinc-600 h-8 rounded duration-150 bg-zinc-700 mr-2'}`}>Table</button>
                         <button onClick={() => {setInfo('charts')}}
                                 className={`${info === 'charts' ?
-                                    'text-zinc-200 w-28 hover:bg-blue-500 h-8 bg-blue-600':
-                                    'w-28 hover:bg-zinc-600 h-8 bg-zinc-700'}`}>Charts</button>
+                                    'text-zinc-200 w-32 rounded duration-150 hover:bg-blue-500 h-8 bg-blue-600':
+                                    'w-32 hover:bg-zinc-600 rounded duration-150 h-8 bg-zinc-700'}`}>Charts</button>
                     </div>
                     <div className={'flex grow w-full max-h-[90%] relative justify-center items-center'}>
                         {!user?.id
