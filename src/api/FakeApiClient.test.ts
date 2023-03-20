@@ -1,4 +1,5 @@
 import {FakeApiClient} from "./FakeApiClient";
+import 'regenerator-runtime/runtime';
 
 it('FakeApiClient class test', async ()=>{
     const api = new FakeApiClient();

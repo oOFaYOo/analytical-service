@@ -1,8 +1,11 @@
 import React from "react";
-import {fireEvent, render, screen} from "@testing-library/react";
-import {ApiContext} from "../../../App";
-import 'regenerator-runtime/runtime';
 import {MemoryRouter} from "react-router-dom";
+import 'regenerator-runtime/runtime';
+
+import {fireEvent, render, screen} from "@testing-library/react";
+
+import {ApiContext} from "../../../App";
+
 import User from "./index";
 
 test("User test", async () => {
@@ -84,7 +87,7 @@ test("User test", async () => {
         )
     }
 
-    const {rerender, container} = render(<Comp/>);
+    const {rerender} = render(<Comp/>);
 
     await Promise.resolve();
     jest.advanceTimersByTime(2000);

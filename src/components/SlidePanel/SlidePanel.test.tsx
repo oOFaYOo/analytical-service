@@ -1,7 +1,9 @@
 import React from "react";
-import {fireEvent, render, screen} from '@testing-library/react';
-import SlidePanel from "./index";
 import {MemoryRouter} from 'react-router';
+
+import {fireEvent, render, screen} from '@testing-library/react';
+
+import SlidePanel from "./index";
 
 test('SlidePanel test', () => {
 
@@ -10,7 +12,7 @@ test('SlidePanel test', () => {
 
         return (
             <MemoryRouter>
-                <SlidePanel values={[{title: 'sometitle', url: ''}]} initial={initial} total={total}/>
+                <SlidePanel values={[{title: 'title', url: ''}]} initial={initial} total={total}/>
             </MemoryRouter>
         )
     }

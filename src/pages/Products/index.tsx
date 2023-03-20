@@ -1,9 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {CircularProgress} from "@mui/material";
-import {ApiContext} from "../../App";
 import {Link} from "react-router-dom";
-import Tile from "../../components/Tile";
+
+import {CircularProgress} from "@mui/material";
+
 import {IProduct} from "../../types";
+import {ApiContext} from "../../App";
+
+import Tile from "../../components/Tile";
 import SlidePanel from "../../components/SlidePanel";
 
 const Products = () => {
@@ -50,4 +53,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default React.memo(Products);

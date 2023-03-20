@@ -7,13 +7,13 @@ export interface IUser {
     photo: string
 }
 
-export interface IDepartments extends ITableMetric{
-    address:string,
-    date:string,
+export interface IDepartments extends ITableMetric {
+    address: string,
+    date: string,
 }
 
 export interface ISlidePanel {
-    values: {title: string, url: string,}[],
+    values: { title: string, url: string, }[],
     initial?: 'open' | 'close',
     total?: boolean,
 }
@@ -24,22 +24,18 @@ export interface IProduct {
     plan: number,
     fact: number,
     planComplete: number,
-    managers: {name:string, id:string}[]
+    managers: { name: string, id: string }[]
 }
 
 export interface ITableMetric {
-    id:string,
+    id: string,
     name: string,
     plan: number,
     fact: number,
     forecast: number,
     planComplete: number,
-    [key: string]: string|number
-}
 
-export interface ITableMetrics {
-    total?: ITableMetric,
-    data: ITableMetric[]
+    [key: string]: string | number
 }
 
 export interface IChartMetric {
@@ -49,17 +45,23 @@ export interface IChartMetric {
     values: string[]
 }
 
+export interface IChartComponent {
+    labels: string[],
+    data: IChartMetric[],
+    type: 'line' | 'bar'
+}
+
 export interface ISidePanel {
     user: IUser,
     data: ITableMetric | undefined
 }
 
 export interface ICell {
-    row?:ITableMetric,
+    row?: ITableMetric,
     value: number | string,
-    width?:number | string,
+    width?: number | string,
     position?: 'left' | 'right' | 'center',
-    plugin?: (value:number | string, row?:ITableMetric) => ReactJSXElement | string | number,
+    plugin?: (value: number | string, row?: ITableMetric) => ReactJSXElement | string | number,
 }
 
 export interface ITitle {
@@ -67,7 +69,7 @@ export interface ITitle {
     key: string,
     position?: 'left' | 'right' | 'center',
     width?: number,
-    plugin?: (value: number | string, row?:ITableMetric) => ReactJSXElement | string | number
+    plugin?: (value: number | string, row?: ITableMetric) => ReactJSXElement | string | number
 }
 
 export interface ITable {
@@ -76,14 +78,29 @@ export interface ITable {
     total?: ITableMetric
 }
 
+export interface ITile {
+    title: string;
+    plan: number;
+    fact: number;
+    planComplete: number
+}
+
 export interface IApiClient<T> {
-    getDepartments():Promise<IDepartments[]>
-    getUsers():Promise<IUser[]>
-    getUser(id:T):Promise<IUser>
-    getTotalTableMetrics(id:T):Promise<ITableMetric>
-    getTableMetrics(id:T):Promise<ITableMetric[]>
-    getUserChartMetrics(id:T):Promise<IChartMetric[]>
-    getProducts():Promise<IProduct[]>
-    getProduct(id:T):Promise<IProduct>
-    getProductChartMetrics(id:T):Promise<IChartMetric[]>
+    getDepartments(): Promise<IDepartments[]>
+
+    getUsers(): Promise<IUser[]>
+
+    getUser(id: T): Promise<IUser>
+
+    getTotalTableMetrics(id: T): Promise<ITableMetric>
+
+    getTableMetrics(id: T): Promise<ITableMetric[]>
+
+    getUserChartMetrics(id: T): Promise<IChartMetric[]>
+
+    getProducts(): Promise<IProduct[]>
+
+    getProduct(id: T): Promise<IProduct>
+
+    getProductChartMetrics(id: T): Promise<IChartMetric[]>
 }

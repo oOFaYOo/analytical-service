@@ -1,9 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {ITableMetric, ITitle} from '../../../../types'
-import {CircularProgress, Tooltip} from "@mui/material";
-import TableComponent from "../../../../components/TableComponent";
-import {ApiContext} from "../../../../App";
 import {Link} from "react-router-dom";
+
+import {CircularProgress, Tooltip} from "@mui/material";
+
+import {ITableMetric, ITitle} from '../../../../types'
+import {ApiContext} from "../../../../App";
+
+import TableComponent from "../../../../components/TableComponent";
 
 const Table = ({id, total}:{id:string|undefined, total:ITableMetric}) => {
     const api = useContext(ApiContext).api;
@@ -119,4 +122,4 @@ const Table = ({id, total}:{id:string|undefined, total:ITableMetric}) => {
     );
 };
 
-export default Table;
+export default React.memo(Table);

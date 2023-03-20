@@ -1,6 +1,7 @@
 import React from 'react';
-import {ISidePanel} from "../../types";
 import {CircularProgress, Tooltip} from "@mui/material";
+
+import {ISidePanel} from "../../types";
 
 const SidePanel = ({user, data}: ISidePanel) => {
     return (
@@ -70,4 +71,4 @@ const SidePanel = ({user, data}: ISidePanel) => {
     );
 };
 
-export default  SidePanel;
+export default  React.memo(SidePanel);

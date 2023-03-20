@@ -1,8 +1,9 @@
 import React from "react";
-import App from "./App";
-import {render} from "@testing-library/react";
 import {MemoryRouter} from "react-router-dom";
 import 'regenerator-runtime/runtime';
+import {render} from "@testing-library/react";
+
+import App from "./App";
 
 test('App test', () => {
 
@@ -14,7 +15,6 @@ test('App test', () => {
         )
     }
 
-    const {rerender, container} = render(<Comp/>);
-
+    render(<Comp/>);
 })
 

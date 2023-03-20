@@ -1,14 +1,16 @@
 import React from "react";
-import {render} from "@testing-library/react";
-import {ApiContext} from "../../App";
-import 'regenerator-runtime/runtime';
-import Products from "./index";
 import {MemoryRouter} from "react-router-dom";
+import 'regenerator-runtime/runtime';
+
+import {render} from "@testing-library/react";
+
+import {ApiContext} from "../../App";
+import Products from "./index";
 
 test("Products test", async () => {
     jest.useFakeTimers()
 
-    const Comp = ({sortFunc = undefined}: { sortFunc?: any }) => {
+    const Comp = () => {
 
         return (
             <MemoryRouter>
@@ -68,7 +70,7 @@ test("Products test", async () => {
         )
     }
 
-    const {rerender, container} = render(<Comp/>);
+    const {rerender} = render(<Comp/>);
 
     await Promise.resolve();
     jest.advanceTimersByTime(2000);

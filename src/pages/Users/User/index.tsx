@@ -1,11 +1,14 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import {ApiContext} from "../../../App";
+
 import {ITableMetric, IUser} from '../../../types';
+import {ApiContext} from "../../../App";
+
+import SlidePanel from "../../../components/SlidePanel";
 import SidePanel from "../../../components/SidePanel";
+
 import Table from "./Table";
 import Chart from "./Chart";
-import SlidePanel from "../../../components/SlidePanel";
 
 const User = () => {
 
@@ -68,4 +71,4 @@ const User = () => {
     );
 };
 
-export default User;
+export default React.memo(User);

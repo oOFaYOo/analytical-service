@@ -46,7 +46,7 @@ test("DepReporting test", async () => {
 
     }
 
-    const {rerender, container} = render(<Comp/>);
+    const {rerender} = render(<Comp/>);
 
     await Promise.resolve();
     jest.advanceTimersByTime(2000);

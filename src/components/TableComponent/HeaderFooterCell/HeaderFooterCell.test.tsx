@@ -1,7 +1,8 @@
-import {render} from "@testing-library/react";
 import React from "react";
-import HeaderFooterCell from "./index";
+import {render} from "@testing-library/react";
+
 import {ITableMetric} from "../../../types";
+import HeaderFooterCell from "./index";
 
 test('HeaderFooterCell test', () => {
 
@@ -12,7 +13,7 @@ test('HeaderFooterCell test', () => {
         )
     }
 
-    const {rerender, container} = render(<Comp position={'center'} width={123} />);
+    const {rerender} = render(<Comp position={'center'} width={123} />);
     rerender(<Comp position={'right'} width={123} plugin={()=>''} value={'total'}/>)
     rerender(<Comp position={undefined} width={undefined} plugin={()=>''} />)
 

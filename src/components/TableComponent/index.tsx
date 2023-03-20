@@ -1,6 +1,8 @@
 import React from 'react';
-import Cell from "./Cell";
+
 import {ITable, ITitle} from '../../types'
+
+import Cell from "./Cell";
 import HeaderFooterCell from "./HeaderFooterCell";
 
 const TableComponent = ({titles, data, total}: ITable) => {
@@ -61,4 +63,4 @@ const TableComponent = ({titles, data, total}: ITable) => {
     );
 };
 
-export default TableComponent;
+export default React.memo(TableComponent);

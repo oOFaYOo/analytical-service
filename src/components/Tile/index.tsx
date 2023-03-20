@@ -1,21 +1,22 @@
 import React from 'react';
 import {Tooltip} from "@mui/material";
+import {ITile} from "../../types";
 
-const Tile = ({title, plan, fact, planComplete}: { title: string; plan: number; fact: number; planComplete: number }) => {
+const color = (value: number) => {
+    switch (true) {
+        case value < 70 :
+            return 'red';
+        case value >= 70 && value < 100:
+            return 'darkOrange';
+        case value === 100 :
+            return 'green';
+        case value > 100 :
+            return 'fuchsia';
+    }
+};
+
+const Tile = ({title, plan, fact, planComplete} : ITile) => {
     const percent = Math.round(planComplete * 100);
-
-    const color = (value: number) => {
-        switch (true) {
-            case value < 70 :
-                return 'red';
-            case value >= 70 && value < 100:
-                return 'darkOrange';
-            case value === 100 :
-                return 'green';
-            case value > 100 :
-                return 'fuchsia';
-        }
-    };
 
     return (
         <div className={'w-[340px] rounded h-[150px] shadow-lg px-6 py-4 bg-zinc-700/40 flex-col flex justify-between hover:brightness-125 hover:scale-[1.02]'}>
@@ -53,4 +54,4 @@ const Tile = ({title, plan, fact, planComplete}: { title: string; plan: number; 
     )
 };
 
-export default Tile;
+export default React.memo(Tile);

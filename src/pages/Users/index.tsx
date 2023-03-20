@@ -1,9 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
+
 import {CircularProgress} from "@mui/material";
-import {ApiContext} from "../../App";
-import SlidePanel from "../../components/SlidePanel";
+
 import {IUser} from "../../types";
+import {ApiContext} from "../../App";
+
+import SlidePanel from "../../components/SlidePanel";
 
 const Users = () => {
 
@@ -60,4 +63,4 @@ const Users = () => {
     );
 };
 
-export default Users;
+export default React.memo(Users);

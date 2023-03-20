@@ -1,8 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react';
-import SlidePanel from "../../components/SlidePanel";
-import {ApiContext} from "../../App";
-import {IDepartments, ITitle} from "../../types";
 import {CircularProgress} from "@mui/material";
+
+import {IDepartments, ITitle} from "../../types";
+import {ApiContext} from "../../App";
+
+import SlidePanel from "../../components/SlidePanel";
 import TableComponent from "../../components/TableComponent";
 
 const DepIndicators = () => {
@@ -108,4 +110,4 @@ const DepIndicators = () => {
     )
 }
 
-export default DepIndicators;
+export default React.memo(DepIndicators);

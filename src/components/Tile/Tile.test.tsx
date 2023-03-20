@@ -1,5 +1,6 @@
-import {render} from "@testing-library/react";
 import React from "react";
+import {render} from "@testing-library/react";
+
 import Tile from "./index";
 
 test('Tile test', () => {
@@ -11,7 +12,7 @@ test('Tile test', () => {
         )
     }
 
-    const {rerender, container} = render(<Comp planComplete={0.5}/>);
+    const {rerender} = render(<Comp planComplete={0.5}/>);
     rerender(<Comp title={'123456789012345678901234567890123456'} planComplete={0.8}/>)
     rerender(<Comp planComplete={1}/>)
     rerender(<Comp planComplete={2}/>)

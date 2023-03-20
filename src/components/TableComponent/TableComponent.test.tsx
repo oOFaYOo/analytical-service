@@ -1,8 +1,8 @@
-import {render} from "@testing-library/react";
 import React from "react";
-import TableComponent from "./index";
-import {ITitle} from "../../types";
+import {render} from "@testing-library/react";
 
+import {ITitle} from "../../types";
+import TableComponent from "./index";
 
 test('TableComponent test', () => {
 
@@ -21,7 +21,7 @@ test('TableComponent test', () => {
         )
     }
 
-    const {rerender, container} = render(<Comp />);
+    const {rerender} = render(<Comp />);
     rerender(<Comp total={{name:'Department', planComplete:1, plan:1, forecast:1, fact:1, id:'1'}} />)
 
 })

@@ -1,10 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {ApiContext} from "../../../App";
-import {IChartMetric, IProduct} from "../../../types";
 import {Link, useParams} from "react-router-dom";
+
 import {CircularProgress, Tooltip} from "@mui/material";
-import ChartComponent from "../../../components/ChartComponent";
+
+import {IChartMetric, IProduct} from "../../../types";
+import {ApiContext} from "../../../App";
 import {months} from "../../../data";
+
+import ChartComponent from "../../../components/ChartComponent";
 import SlidePanel from "../../../components/SlidePanel";
 
 const Product = () => {
@@ -95,4 +98,4 @@ const Product = () => {
     );
 };
 
-export default Product;
+export default React.memo(Product);

@@ -1,8 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react';
-import SlidePanel from "../../components/SlidePanel";
-import {ApiContext} from "../../App";
-import {IDepartments} from "../../types";
 import {CircularProgress} from "@mui/material";
+
+import {IDepartments} from "../../types";
+import {ApiContext} from "../../App";
+
+import SlidePanel from "../../components/SlidePanel";
 
 const DepReporting = () => {
 
@@ -39,4 +41,4 @@ const DepReporting = () => {
     )
 }
 
-export default DepReporting;
+export default React.memo(DepReporting);

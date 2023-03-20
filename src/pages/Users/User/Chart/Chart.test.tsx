@@ -1,7 +1,9 @@
 import React from "react";
-import {render} from "@testing-library/react";
-import {ApiContext} from "../../../../App";
 import 'regenerator-runtime/runtime';
+
+import {render} from "@testing-library/react";
+
+import {ApiContext} from "../../../../App";
 import Chart from "./index";
 
 test("Chart test", async () => {
@@ -376,7 +378,7 @@ test("Chart test", async () => {
 
     }
 
-    const {rerender, container} = render(<Comp/>);
+    const {rerender} = render(<Comp/>);
 
     await Promise.resolve();
     jest.advanceTimersByTime(2000);

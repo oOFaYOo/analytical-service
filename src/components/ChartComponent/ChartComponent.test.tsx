@@ -1,5 +1,6 @@
-import {render} from "@testing-library/react";
 import React from "react";
+import {render} from "@testing-library/react";
+
 import ChartComponent from "./index";
 
 test('ChartComponent test', () => {
@@ -20,7 +21,7 @@ test('ChartComponent test', () => {
         )
     }
 
-    const {rerender, container} = render(<Comp type={'line'} />);
+    const {rerender} = render(<Comp type={'line'} />);
 
 
     rerender(<Comp type={'bar'} />)

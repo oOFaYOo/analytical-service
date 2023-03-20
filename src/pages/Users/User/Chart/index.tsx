@@ -1,9 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
+
 import {CircularProgress} from "@mui/material";
-import ChartComponent from "../../../../components/ChartComponent";
+
 import {IChartMetric} from "../../../../types";
 import {ApiContext} from "../../../../App";
 import {months} from "../../../../data";
+
+import ChartComponent from "../../../../components/ChartComponent";
 
 const Chart = ({id}:{id:string|undefined}) => {
     const api = useContext(ApiContext).api;
@@ -36,4 +39,4 @@ const Chart = ({id}:{id:string|undefined}) => {
     );
 };
 
-export default Chart;
+export default React.memo(Chart);

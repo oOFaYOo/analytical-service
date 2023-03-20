@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {ICell} from "../../../types";
 
 const HeaderFooterCell = ({value, position, width, plugin}:ICell) => {
@@ -19,4 +20,4 @@ const HeaderFooterCell = ({value, position, width, plugin}:ICell) => {
         </td>);
 };
 
-export default HeaderFooterCell;
+export default React.memo(HeaderFooterCell);

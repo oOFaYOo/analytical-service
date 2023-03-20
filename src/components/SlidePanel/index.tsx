@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import {ISlidePanel} from "../../types";
 import {Link, useLocation} from "react-router-dom";
+
+import {ISlidePanel} from "../../types";
 
 const SlidePanel = ({values, initial = 'open', total}: ISlidePanel) => {
 
@@ -35,7 +36,7 @@ const SlidePanel = ({values, initial = 'open', total}: ISlidePanel) => {
     );
 }
 
-export default SlidePanel;
+export default React.memo(SlidePanel);
 
 
 

@@ -2,10 +2,10 @@ import React, {useEffect, useRef} from "react";
 import {Chart, ChartItem, registerables} from 'chart.js';
 import {config as barConfig} from "./barChartConfig";
 import {config as lineConfig} from "./lineChartConfig";
-import {IChartMetric} from "../../types";
+import {IChartComponent, IChartMetric} from "../../types";
 Chart.register(...(registerables ?? []));
 
-const ChartComponent = ({labels, data, type}:{labels:string[], data: IChartMetric[], type:'line'|'bar'}) => {
+const ChartComponent = ({labels, data, type} : IChartComponent) => {
     const datasets = () => {
         if(type === 'bar'){
             return data.map((item:IChartMetric) => {
@@ -61,4 +61,4 @@ const ChartComponent = ({labels, data, type}:{labels:string[], data: IChartMetri
     );
 }
 
-export default ChartComponent;
+export default React.memo(ChartComponent);
