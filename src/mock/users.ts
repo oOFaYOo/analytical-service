@@ -3,7 +3,7 @@ const users = [
         name: "Emily Stewart",
         id: "258d2x2s5s2x6",
         position: "Sales Manager",
-        photo: "https://hemeds.com/wp-content/uploads/2017/05/image-people-01.jpg"
+        photo: "https://hrmanageronline.ro/wp-content/uploads/2017/01/shutterstock_316714355.jpg"
     },
     {
         name: "David Nicholson",
@@ -21,7 +21,7 @@ const users = [
         name: "Emily Stewart",
         id: "258d2x2s5s2x6",
         position: "Sales Manager",
-        photo: "https://hemeds.com/wp-content/uploads/2017/05/image-people-01.jpg"
+        photo: "https://hrmanageronline.ro/wp-content/uploads/2017/01/shutterstock_316714355.jpg"
     },
     {
         name: "David Nicholson",
@@ -39,7 +39,7 @@ const users = [
         name: "Emily Stewart",
         id: "258d2x2s5s2x6",
         position: "Sales Manager",
-        photo: "https://hemeds.com/wp-content/uploads/2017/05/image-people-01.jpg"
+        photo: "https://hrmanageronline.ro/wp-content/uploads/2017/01/shutterstock_316714355.jpg"
     },
     {
         name: "David Nicholson",
@@ -57,7 +57,7 @@ const users = [
         name: "Emily Stewart",
         id: "258d2x2s5s2x6",
         position: "Sales Manager",
-        photo: "https://hemeds.com/wp-content/uploads/2017/05/image-people-01.jpg"
+        photo: "https://hrmanageronline.ro/wp-content/uploads/2017/01/shutterstock_316714355.jpg"
     },
     {
         name: "David Nicholson",
